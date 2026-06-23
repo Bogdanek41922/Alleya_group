@@ -125,7 +125,7 @@ forms.forEach((form) => {
     const type = new FormData(form).get("type") || "обращение";
     if (!note) return;
     note.classList.add("is-success");
-    note.textContent = `Заявка "${type}" сформирована. После подключения CRM/CMS форма будет отправлять обращения в рабочий контур; срочный контакт: +7 (499) 277-15-77.`;
+    note.textContent = `Заявка "${type}" сформирована. После подключения рабочего обработчика форма будет отправлять обращения в коммерческий контур; срочный контакт: +7 (499) 277-15-77.`;
   });
 });
 
@@ -139,6 +139,10 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
       if (note) note.textContent = window.location.href;
     }
   });
+});
+
+document.querySelectorAll("[data-print]").forEach((button) => {
+  button.addEventListener("click", () => window.print());
 });
 
 document.querySelectorAll("[data-news-carousel]").forEach((carousel) => {

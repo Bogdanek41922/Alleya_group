@@ -33,26 +33,22 @@
     </header>
 
     <main>
-      <section class="page-hero theme-dark">
+      <section class="news-showcase-hero theme-dark">
         <canvas class="atmosphere" width="1440" height="720" aria-hidden="true" data-atmosphere></canvas>
-        <div class="section-shell">
-          <p class="eyebrow" data-reveal>newsroom</p>
-          <h1 data-reveal>Новости, которые работают как инструмент коммуникации</h1>
-          <p class="lead" data-reveal>
-            Продуктовые обновления, изменения рынка, брендовые события и материалы, которые можно отправить клиенту
-            без лишних объяснений.
-          </p>
-        </div>
-      </section>
-
-      <section class="news-spotlight" aria-label="Главные материалы">
-        <div class="section-shell">
-          <div class="spotlight-frame" data-news-carousel data-reveal>
-            <div class="spotlight-copy">
-              <p class="eyebrow">главное сейчас</p>
-              <h2>Материалы, которые можно сразу отправить клиенту</h2>
-              <p>Слайдер собирает продуктовые сигналы, B2B-акции и доказательства официального канала в один короткий маршрут.</p>
+        <div class="section-shell news-showcase-grid">
+          <div class="news-showcase-copy" data-reveal>
+            <p class="eyebrow">newsroom</p>
+            <h1>Новости</h1>
+            <p class="lead">
+              Открытые материалы ALLEYA GROUP: продуктовые обновления, брендовые события, рынок и доказательства,
+              которыми можно делиться с клиентами.
+            </p>
+            <div class="news-showcase-actions">
+              <a class="button button-primary" href="#news-list">Все материалы</a>
+              <a class="button button-glass" href="/b2b/">B2B-лента</a>
             </div>
+          </div>
+          <div class="spotlight-frame" data-news-carousel data-reveal aria-label="Главные новости">
             <div class="spotlight-slider">
               <div class="spotlight-track" data-carousel-track>
                 <article class="spotlight-slide is-active">
@@ -62,15 +58,6 @@
                     <h3>Масла API SQ уже поступают в продажу</h3>
                     <p>Продуктовый повод для разговора с СТО, розницей и автопарками.</p>
                     <a class="button button-light" href="/news/api-sq/">Открыть материал</a>
-                  </div>
-                </article>
-                <article class="spotlight-slide">
-                  <img src="/assets/images/LM.png" alt="Liqui Moly">
-                  <div>
-                    <span>B2B / акция</span>
-                    <h3>Liqui Moly: футбольный мяч за закупку промонабора</h3>
-                    <p>Короткий промо-сценарий для партнеров и менеджеров с условиями, сроками и материалами.</p>
-                    <a class="button button-light" href="/portal.html">Войти в кабинет</a>
                   </div>
                 </article>
                 <article class="spotlight-slide">
@@ -91,6 +78,15 @@
                     <a class="button button-light" href="/news/zoomlion-lopal/">Открыть материал</a>
                   </div>
                 </article>
+                <article class="spotlight-slide">
+                  <img src="/assets/images/LOPAL.png" alt="Lopal">
+                  <div>
+                    <span>компания / доверие</span>
+                    <h3>ALLEYA GROUP вошла в TOP-10 дистрибьюторов Lopal</h3>
+                    <p>Открытый инфоповод о статусе компании в брендовой экосистеме Lopal.</p>
+                    <a class="button button-light" href="/news/lopal-top-10/">Открыть материал</a>
+                  </div>
+                </article>
               </div>
               <div class="carousel-controls" aria-label="Управление каруселью">
                 <button type="button" aria-label="Предыдущий материал" data-carousel-prev></button>
@@ -102,7 +98,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="news-list">
         <div class="section-shell">
           <div class="news-grid listing">
             <article class="news-card featured" data-reveal>
