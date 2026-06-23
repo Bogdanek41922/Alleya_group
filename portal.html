@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>B2B-кабинет - ALLEYA GROUP</title>
+    <meta name="description" content="Закрытый контур ALLEYA GROUP для B2B-партнеров и менеджеров: акции, отгрузки, прайс-листы и новости.">
+    <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="portal-page-body">
+    <header class="site-header" data-header>
+      <div class="top-strip"><span>Официальные бренды, документы и подтвержденные материалы ALLEYA GROUP</span><a href="tel:+74992771577">+7 (499) 277-15-77</a><a href="/knowledge.html">Документы</a><a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a></div>
+      <a class="brand-lockup" href="/" aria-label="ALLEYA GROUP">
+        <img src="/assets/images/logo.png" alt="ALLEYA GROUP">
+        <span>информационный портал</span>
+      </a>
+      <nav class="site-nav" id="main-nav" aria-label="Главная навигация" data-nav>
+        <a href="/">Главная</a>
+        <a href="/about.html">О компании</a>
+        <a href="/news/">Новости</a>
+        <a href="/brands.html">Бренды</a>
+        <a href="/knowledge.html">База знаний</a>
+        <a class="is-active" aria-current="page" href="/portal.html">B2B</a>
+        <a href="/contacts.html">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <a class="ghost-link" href="/portal.html">Вход B2B</a>
+        <a class="button button-primary" href="/contacts.html">Стать партнером</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="portal-gate theme-dark" aria-labelledby="portal-title">
+        <canvas class="atmosphere" width="1440" height="720" aria-hidden="true" data-atmosphere></canvas>
+        <div class="section-shell portal-gate-grid">
+          <div class="portal-gate-copy" data-reveal>
+            <p class="eyebrow">закрытый контур</p>
+            <h1 id="portal-title">B2B и менеджеры: акции, отгрузки, прайсы и рабочие новости</h1>
+            <p class="lead">Единое окно для партнеров и команды продаж: промо-механики, статусы поставок, скачивание прайс-листов, новости для бизнеса и материалы, которые можно отправить клиенту.</p>
+            <div class="portal-signal-row" aria-label="Разделы кабинета">
+              <span>акции</span>
+              <span>отгрузки</span>
+              <span>прайс-листы</span>
+              <span>B2B-новости</span>
+            </div>
+          </div>
+
+          <form class="portal-login" data-auth-form data-reveal>
+            <div class="portal-login-head">
+              <span>AG access</span>
+              <strong>демо-вход</strong>
+            </div>
+            <div class="role-switch" aria-label="Тип входа">
+              <button class="is-active" type="button" data-role-choice="partner" aria-pressed="true">B2B-партнер</button>
+              <button type="button" data-role-choice="manager" aria-pressed="false">Менеджер</button>
+            </div>
+            <label>
+              Рабочая почта
+              <input name="email" type="email" value="partner@alleya-group.ru" autocomplete="email" required>
+            </label>
+            <label>
+              Пароль
+              <input name="password" type="password" value="demo2026" autocomplete="current-password" required>
+            </label>
+            <button class="button button-primary" type="submit">Войти в раздел</button>
+            <p class="form-note">Демо-вход показывает будущий закрытый раздел. Реальные роли, пароли и права доступа будут подключены в рабочем контуре.</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="portal-workspace is-locked" data-portal-shell aria-live="polite">
+        <div class="section-shell">
+          <div class="workspace-head" data-reveal>
+            <div>
+              <p class="eyebrow">рабочая панель</p>
+              <h2>Коммерческий контур ALLEYA GROUP</h2>
+              <p data-portal-greeting>Войдите, чтобы открыть материалы для партнеров и менеджеров.</p>
+            </div>
+            <button class="button button-dark" type="button" data-logout>Выйти</button>
+          </div>
+
+          <div class="workspace-grid">
+            <article class="promo-command hero-promo" data-reveal>
+              <span>акция / Liqui Moly</span>
+              <h3>Купи Liqui Moly и получи футбольный мяч в подарок</h3>
+              <p>Промо для партнеров: готовый инфоповод, условия закупки, материалы для менеджера и карточка для рассылки клиентам.</p>
+              <div class="promo-meta">
+                <strong>Срок: июль 2026</strong>
+                <strong>Статус: готово к запуску</strong>
+              </div>
+              <a class="button button-light" href="/news/">Подготовить новость</a>
+            </article>
+            <article class="workspace-card shipment-card" data-reveal>
+              <span>отгрузки</span>
+              <h3 data-role-title data-partner-text="План ближайших поставок" data-manager-text="Контроль отгрузок по клиентам">План ближайших поставок</h3>
+              <ul>
+                <li><strong>Lopal API SQ:</strong> резерв на складе, доступно к заказу</li>
+                <li><strong>Bizol:</strong> партия в распределении по филиалам</li>
+                <li><strong>Lubex:</strong> подтверждение документов до конца недели</li>
+              </ul>
+              <a class="text-link" href="/contacts.html">Запросить статус</a>
+            </article>
+            <article class="workspace-card price-card" data-reveal>
+              <span>прайс-лист</span>
+              <h3 data-role-title data-partner-text="Скачать партнерский прайс" data-manager-text="Скачать прайс для клиента">Скачать партнерский прайс</h3>
+              <p data-role-text data-partner-text="Файл показывает формат будущей выгрузки для партнера: бренды, SKU, наличие, цена и комментарий." data-manager-text="Файл показывает формат выгрузки, которую менеджер сможет отправить клиенту после проверки условий.">Файл показывает формат будущей выгрузки для партнера: бренды, SKU, наличие, цена и комментарий.</p>
+              <a class="button button-dark" href="/assets/docs/alleya-b2b-price-list-demo.csv" download>Скачать CSV</a>
+            </article>
+          </div>
+
+          <div class="workspace-grid secondary">
+            <article class="workspace-card" data-reveal>
+              <span>новости для бизнеса</span>
+              <h3>Маркировка и документы</h3>
+              <p>Короткий материал для клиента о Честном знаке, официальной поставке и проверяемости канала.</p>
+              <a class="text-link" href="/news/chestny-znak/">Открыть</a>
+            </article>
+            <article class="workspace-card" data-reveal>
+              <span>менеджеру</span>
+              <h3>Аргументы по Lopal</h3>
+              <p>API SQ, промышленный кейс Zoomlion и статус TOP-10 дистрибьюторов собраны в один маршрут.</p>
+              <a class="text-link" href="/news/api-sq/">Открыть маршрут</a>
+            </article>
+            <article class="workspace-card" data-reveal>
+              <span>партнеру</span>
+              <h3 data-role-title data-partner-text="Материалы для рассылки" data-manager-text="Готовые сообщения клиенту">Материалы для рассылки</h3>
+              <p data-role-text data-partner-text="Баннеры, условия акций, новости по складу и короткие формулировки для сообщений клиентам." data-manager-text="Короткие формулировки, ссылки на новости и промо-карточки, которые менеджер может быстро отправить в переписке.">Баннеры, условия акций, новости по складу и короткие формулировки для сообщений клиентам.</p>
+              <a class="text-link" href="/knowledge.html">В базу знаний</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="footer-logo" href="/"><img src="/assets/images/footer_logo.png" alt="ALLEYA GROUP"></a>
+        <p>Системная дистрибуция смазочных материалов, автохимии и индустриальных решений.</p>
+        <div class="footer-links"><a href="/about.html">О компании</a><a href="/news/">Новости</a><a href="/portal.html">B2B</a><a href="/contacts.html">Контакты</a></div>
+      </div>
+    </footer>
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -120,16 +120,12 @@ const forms = document.querySelectorAll("[data-contact-form]");
 forms.forEach((form) => {
   form.addEventListener("submit", (event) => {
     if (!form.reportValidity()) return;
-    const hostname = window.location.hostname;
-    const isPreviewHost =
-      ["127.0.0.1", "localhost", ""].includes(hostname) || hostname.endsWith(".vercel.app");
-    if (!isPreviewHost) return;
     event.preventDefault();
     const note = form.querySelector("[data-form-note]");
     const type = new FormData(form).get("type") || "обращение";
     if (!note) return;
     note.classList.add("is-success");
-    note.textContent = `Демо-режим: заявка "${type}" заполнена. На рабочем домене форма будет подключена к обработчику заявок; срочный контакт: +7 (499) 277-15-77.`;
+    note.textContent = `Заявка "${type}" сформирована. После подключения CRM/CMS форма будет отправлять обращения в рабочий контур; срочный контакт: +7 (499) 277-15-77.`;
   });
 });
 
@@ -142,6 +138,88 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
     } catch {
       if (note) note.textContent = window.location.href;
     }
+  });
+});
+
+document.querySelectorAll("[data-news-carousel]").forEach((carousel) => {
+  const slides = Array.from(carousel.querySelectorAll(".spotlight-slide"));
+  const dotsWrap = carousel.querySelector("[data-carousel-dots]");
+  const prev = carousel.querySelector("[data-carousel-prev]");
+  const next = carousel.querySelector("[data-carousel-next]");
+  let index = slides.findIndex((slide) => slide.classList.contains("is-active"));
+  if (index < 0) index = 0;
+
+  const dots = slides.map((_, dotIndex) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Показать материал ${dotIndex + 1}`);
+    dot.addEventListener("click", () => setSlide(dotIndex));
+    dotsWrap?.append(dot);
+    return dot;
+  });
+
+  const setSlide = (nextIndex) => {
+    index = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === index);
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === index);
+      dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
+    });
+  };
+
+  prev?.addEventListener("click", () => setSlide(index - 1));
+  next?.addEventListener("click", () => setSlide(index + 1));
+  setSlide(index);
+
+  if (!reducedMotion && slides.length > 1) {
+    let timer = window.setInterval(() => setSlide(index + 1), 6500);
+    carousel.addEventListener("pointerenter", () => window.clearInterval(timer));
+    carousel.addEventListener("pointerleave", () => {
+      timer = window.setInterval(() => setSlide(index + 1), 6500);
+    });
+  }
+});
+
+document.querySelectorAll("[data-auth-form]").forEach((form) => {
+  const shell = document.querySelector("[data-portal-shell]");
+  const greeting = document.querySelector("[data-portal-greeting]");
+  const roleButtons = Array.from(form.querySelectorAll("[data-role-choice]"));
+  let role = "partner";
+
+  roleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      role = button.dataset.roleChoice || "partner";
+      roleButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = new FormData(form).get("email") || "user@alleya-group.ru";
+    const roleLabel = role === "manager" ? "менеджера" : "B2B-партнера";
+    const roleDataset = role === "manager" ? "managerText" : "partnerText";
+    shell?.classList.remove("is-locked");
+    if (greeting) {
+      greeting.textContent = `Вход выполнен для ${roleLabel}: ${email}. Ниже доступны акции, отгрузки, прайсы и новости закрытого контура.`;
+    }
+    document.querySelectorAll("[data-role-title], [data-role-text]").forEach((node) => {
+      if (node.dataset[roleDataset]) node.textContent = node.dataset[roleDataset];
+    });
+    shell?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+  });
+});
+
+document.querySelectorAll("[data-logout]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const shell = document.querySelector("[data-portal-shell]");
+    shell?.classList.add("is-locked");
+    document.querySelector("[data-auth-form]")?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
   });
 });
 
