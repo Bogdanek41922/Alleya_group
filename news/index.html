@@ -33,67 +33,50 @@
     </header>
 
     <main>
-      <section class="news-showcase-hero theme-dark">
+      <section class="news-room-hero theme-dark">
         <canvas class="atmosphere" width="1440" height="720" aria-hidden="true" data-atmosphere></canvas>
-        <div class="section-shell news-showcase-grid">
-          <div class="news-showcase-copy" data-reveal>
-            <p class="eyebrow">newsroom</p>
-            <h1>Новости</h1>
+        <div class="section-shell news-room-grid">
+          <div class="news-room-copy" data-reveal>
+            <p class="eyebrow">медиацентр</p>
+            <h1>Медиацентр</h1>
             <p class="lead">
-              Открытые материалы ALLEYA GROUP: продуктовые обновления, брендовые события, рынок и доказательства,
-              которыми можно делиться с клиентами.
+              Открытые новости, брендовые события и статьи для клиентов. Закрытые рабочие объявления вынесены
+              в отдельную B2B-ленту.
             </p>
             <div class="news-showcase-actions">
               <a class="button button-primary" href="#news-list">Все материалы</a>
               <a class="button button-glass" href="/b2b/">B2B-лента</a>
             </div>
           </div>
-          <div class="spotlight-frame" data-news-carousel data-reveal aria-label="Главные новости">
-            <div class="spotlight-slider">
-              <div class="spotlight-track" data-carousel-track>
-                <article class="spotlight-slide is-active">
-                  <img src="/assets/optimized/news-api-sq.jpg" alt="Масла API SQ">
-                  <div>
-                    <span>Lopal / API SQ</span>
-                    <h3>Масла API SQ уже поступают в продажу</h3>
-                    <p>Продуктовый повод для разговора с СТО, розницей и автопарками.</p>
-                    <a class="button button-light" href="/news/api-sq/">Открыть материал</a>
-                  </div>
-                </article>
-                <article class="spotlight-slide">
-                  <img src="/assets/optimized/news-chestny-znak.jpg" alt="Честный знак">
-                  <div>
-                    <span>рынок / документы</span>
-                    <h3>Честный знак как аргумент официальной поставки</h3>
-                    <p>Материал помогает объяснить клиенту ценность прозрачного канала и подтвержденных документов.</p>
-                    <a class="button button-light" href="/news/chestny-znak/">Открыть материал</a>
-                  </div>
-                </article>
-                <article class="spotlight-slide">
-                  <img src="/assets/optimized/news-zoomlion.jpg" alt="Zoomlion и Lopal">
-                  <div>
-                    <span>индустрия / доверие</span>
-                    <h3>Zoomlion отметил Lopal как поставщика ГСМ</h3>
-                    <p>Промышленный кейс для переговоров с техническими клиентами и спецтехникой.</p>
-                    <a class="button button-light" href="/news/zoomlion-lopal/">Открыть материал</a>
-                  </div>
-                </article>
-                <article class="spotlight-slide">
-                  <img src="/assets/images/LOPAL.png" alt="Lopal">
-                  <div>
-                    <span>компания / доверие</span>
-                    <h3>ALLEYA GROUP вошла в TOP-10 дистрибьюторов Lopal</h3>
-                    <p>Открытый инфоповод о статусе компании в брендовой экосистеме Lopal.</p>
-                    <a class="button button-light" href="/news/lopal-top-10/">Открыть материал</a>
-                  </div>
-                </article>
+          <div class="editorial-board" data-reveal aria-label="Главные материалы">
+            <a class="editorial-feature" href="/news/api-sq/">
+              <img src="/assets/optimized/news-api-sq.jpg" alt="Масла API SQ">
+              <div>
+                <span>главный материал</span>
+                <h2>Масла API SQ уже поступают в продажу</h2>
+                <p>Открытый продуктовый материал Lopal для клиентов, СТО, розницы и автопарков.</p>
               </div>
-              <div class="carousel-controls" aria-label="Управление каруселью">
-                <button type="button" aria-label="Предыдущий материал" data-carousel-prev></button>
-                <div class="carousel-dots" data-carousel-dots></div>
-                <button type="button" aria-label="Следующий материал" data-carousel-next></button>
-              </div>
+            </a>
+            <div class="editorial-list">
+              <a href="/news/chestny-znak/"><span>рынок</span><strong>Честный знак и поэкземплярный учет масел</strong></a>
+              <a href="/news/zoomlion-lopal/"><span>индустрия</span><strong>Zoomlion отметил Lopal как поставщика ГСМ</strong></a>
+              <a href="/news/lopal-top-10/"><span>компания</span><strong>ALLEYA GROUP в TOP-10 дистрибьюторов Lopal</strong></a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="news-rail-section" aria-label="Актуальные материалы">
+        <div class="section-shell">
+          <div class="news-rail-head" data-reveal>
+            <p class="eyebrow">актуальное</p>
+            <h2>Быстрый просмотр</h2>
+          </div>
+          <div class="news-rail" data-reveal>
+            <a href="/news/api-sq/"><img src="/assets/optimized/news-api-sq.jpg" alt=""><span>Lopal / продукт</span><strong>API SQ уже в продаже</strong></a>
+            <a href="/news/chestny-znak/"><img src="/assets/optimized/news-chestny-znak.jpg" alt=""><span>рынок / документы</span><strong>Честный знак как аргумент доверия</strong></a>
+            <a href="/news/zoomlion-lopal/"><img src="/assets/optimized/news-zoomlion.jpg" alt=""><span>B2B-доказательство</span><strong>Промышленный кейс Zoomlion и Lopal</strong></a>
+            <a href="/news/lopal-top-10/"><img src="/assets/images/LOPAL.png" alt=""><span>компания</span><strong>TOP-10 дистрибьюторов Lopal</strong></a>
           </div>
         </div>
       </section>
