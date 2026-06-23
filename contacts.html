@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Контакты - ALLEYA GROUP</title>
+    <meta name="description" content="Контакты ALLEYA GROUP: заявка на партнерство, технический вопрос, брендовый пакет и обратная связь.">
+    <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <div class="top-strip"><span>Официальные бренды, документы и подтвержденные материалы ALLEYA GROUP</span><a href="tel:+74992771577">+7 (499) 277-15-77</a><a href="/knowledge.html">Документы</a><a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a></div>
+      <a class="brand-lockup" href="/"><img src="/assets/images/logo.png" alt="ALLEYA GROUP"><span>информационный портал</span></a>
+      <nav class="site-nav" id="main-nav" aria-label="Главная навигация" data-nav>
+        <a href="/">Главная</a><a href="/about.html">О компании</a><a href="/news/">Новости</a><a href="/brands.html">Бренды</a><a href="/knowledge.html">База знаний</a><a class="is-active" aria-current="page" href="/contacts.html">Контакты</a>
+      </nav>
+      <div class="header-actions"><a class="ghost-link" href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a><a class="button button-primary" href="/contacts.html">Стать партнером</a></div>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-menu-toggle><span></span><span></span><span></span></button>
+    </header>
+    <main>
+      <section class="contact-page">
+        <div class="section-shell contact-layout">
+          <div class="contact-info" data-reveal>
+            <p class="eyebrow">связаться</p>
+            <h1>Оставьте заявку или вопрос специалисту</h1>
+            <p>Выберите тип обращения, оставьте контакт и коротко опишите задачу. Команда ALLEYA GROUP использует такие обращения для партнерства, технических вопросов и брендовых материалов.</p>
+            <address>
+              <strong>ООО АЛЛЕЯ ГРУПП</strong><br>
+              117279, г. Москва, ул. Профсоюзная, дом 93А, 4 эт., помещение 1, комната 18в<br>
+              <a href="tel:+74992771577">+7 (499) 277-15-77</a>
+            </address>
+          </div>
+          <form class="contact-form" action="/request.php" method="post" data-contact-form data-reveal>
+            <label>Тип обращения
+              <select name="type" required>
+                <option>Стать партнером</option>
+                <option>Получить брендовый пакет</option>
+                <option>Задать технический вопрос</option>
+                <option>Предложить новость или лендинг</option>
+              </select>
+            </label>
+            <label>Имя<input name="name" type="text" autocomplete="name" required placeholder="Как к вам обращаться"></label>
+            <label>Контакт<input name="contact" type="text" autocomplete="tel" required placeholder="Телефон, email или мессенджер"></label>
+            <label>Комментарий<textarea name="message" rows="5" required placeholder="Коротко опишите задачу"></textarea></label>
+            <button class="button button-primary" type="submit">Отправить</button>
+            <p class="form-note" data-form-note>Нажимая кнопку, пользователь соглашается на обработку персональных данных.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-inner"><a class="footer-logo" href="/"><img src="/assets/images/footer_logo.png" alt="ALLEYA GROUP"></a><p>Системная дистрибуция смазочных материалов, автохимии и индустриальных решений.</p><div class="footer-links"><a href="/about.html">О компании</a><a href="/news/">Новости</a><a href="/contacts.html">Контакты</a></div></div></footer>
+    <script src="/script.js"></script>
+  </body>
+</html>
