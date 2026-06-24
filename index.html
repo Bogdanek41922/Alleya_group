@@ -32,222 +32,237 @@
       </button>
     </header>
 
-    <main>
-      <section class="portal-hero" id="top">
+    <main class="media-home">
+      <section class="portal-hero feed-hero" id="top">
         <canvas class="atmosphere" width="1440" height="760" aria-hidden="true" data-atmosphere></canvas>
-        <div class="section-shell portal-hero-grid">
-          <div class="portal-copy" data-reveal>
-            <p class="eyebrow">официальный информационный портал</p>
-            <h1>Сигналы рынка, бренды и материалы ALLEYA GROUP в одном месте</h1>
+        <div class="section-shell feed-hero-shell">
+          <div class="feed-hero-copy" data-reveal>
+            <p class="eyebrow">медиацентр ALLEYA GROUP</p>
+            <h1>Медиа-лента ALLEYA GROUP</h1>
             <p class="lead">
-              Рабочая медиа-система для сотрудников, B2B-партнеров и конечных клиентов: новости, документы,
-              технические ответы, кейсы и готовые ссылки для деловой коммуникации.
+              Новости, статьи, промо и видео собираются в одном рабочем потоке: открыл, понял контекст,
+              отправил ссылку клиенту или ушел на сайт бренда за деталями.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="/news/">Открыть новости</a>
-              <a class="button button-light" href="/brands.html">Брендовый контур</a>
-              <a class="button button-glass" href="/about.html">Обзор компании</a>
+              <a class="button button-primary" href="#feed">Открыть ленту</a>
+              <a class="button button-light" href="/portal.html">Вход B2B</a>
+              <a class="button button-glass" href="/brands.html">Бренды</a>
             </div>
-            <div class="mobile-proof-inline" aria-label="Ключевые показатели">
-              <span>11 филиалов</span>
-              <span>12+ брендов</span>
-              <span>техподдержка</span>
-            </div>
-            <div class="signal-chain" aria-label="Маршрут материала">
-              <span>сигнал</span>
-              <span>контекст</span>
-              <span>доказательство</span>
-              <span>бренд</span>
-              <span>действие</span>
+            <div class="signal-chain" aria-label="Форматы материалов">
+              <span>новости</span>
+              <span>статьи</span>
+              <span>видео</span>
+              <span>акции</span>
+              <span>документы</span>
             </div>
           </div>
 
-          <aside class="command-panel" data-reveal aria-label="Оперативная панель материалов">
-            <div class="panel-topline">
-              <span>Сводка материалов</span>
-              <strong>актуальная повестка</strong>
+          <div class="feed-hero-carousel" data-feed-carousel data-reveal aria-label="Главные материалы">
+            <div class="feed-hero-track">
+              <a class="feed-hero-slide is-active" href="/b2b/lopal-durarev-p800/" data-feed-slide>
+                <img src="/assets/images/b2b/lopal-durarev-p800.png" alt="Lopal DuraRev P800 CK-4 5W-30">
+                <div>
+                  <span>главный баннер / Lopal</span>
+                  <h2>DuraRev P800 CK-4 5W-30 для дизельных автопарков</h2>
+                  <p>Большой брендовый материал с аргументами для коммерческого транспорта, автопарков и дилеров.</p>
+                </div>
+              </a>
+              <a class="feed-hero-slide" href="/b2b/reinwell-gerol-atf-dx3/" data-feed-slide>
+                <img src="/assets/images/b2b/reinwell-canister.png" alt="Новая канистра ReinWell">
+                <div>
+                  <span>поступление / ReinWell</span>
+                  <h2>GEROL ATF DX III в новой фирменной канистре</h2>
+                  <p>Поступление на склад, визуальные преимущества упаковки и готовая формулировка для продаж.</p>
+                </div>
+              </a>
+              <a class="feed-hero-slide" href="/b2b/lopal-canisters-color/" data-feed-slide>
+                <img src="/assets/images/b2b/lopal-e21-canister.png" alt="Обновление канистр Lopal E21">
+                <div>
+                  <span>обновление / Lopal</span>
+                  <h2>Канистры E21, E26 и E27 получили новый цвет</h2>
+                  <p>Короткое объяснение для партнеров: рецептуры идентичны, на складе возможны оба дизайна.</p>
+                </div>
+              </a>
             </div>
-            <a class="signal-card signal-card-main" href="/news/api-sq/">
-              <span>продуктовый сигнал</span>
-              <h2>API SQ уже в продаже</h2>
-              <p>Готовый материал для разговора с клиентом: что изменилось, где посмотреть продукт и почему это важно.</p>
-            </a>
-            <div class="signal-ticker">
-              <a href="/news/chestny-znak/"><strong>Маркировка</strong><span>Честный знак как аргумент официальной поставки</span></a>
-              <a href="/news/zoomlion-lopal/"><strong>B2B-доказательство</strong><span>Zoomlion отметил промышленную роль Lopal</span></a>
-              <a href="/news/lopal-top-10/"><strong>Позиция AG</strong><span>TOP-10 дистрибьюторов Lopal</span></a>
+            <div class="feed-hero-controls">
+              <button type="button" data-feed-carousel-prev aria-label="Предыдущий материал"></button>
+              <div class="feed-hero-dots" data-feed-carousel-dots></div>
+              <button type="button" data-feed-carousel-next aria-label="Следующий материал"></button>
             </div>
-            <div class="panel-visual" aria-hidden="true">
-              <img src="/assets/optimized/products.png" alt="">
-              <span class="pulse-dot dot-one"></span>
-              <span class="pulse-dot dot-two"></span>
-              <span class="pulse-dot dot-three"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="feed-section" id="feed" aria-labelledby="feed-title">
+        <div class="section-shell feed-layout">
+          <aside class="feed-nav-panel" data-reveal aria-label="Разделы ленты">
+            <div class="feed-nav-head">
+              <span>лента</span>
+              <strong>Материалы</strong>
+            </div>
+            <div class="feed-filter-list" data-feed-filters>
+              <button class="is-active" type="button" data-feed-filter="all" aria-pressed="true">Все</button>
+              <button type="button" data-feed-filter="news" aria-pressed="false">Новости</button>
+              <button type="button" data-feed-filter="article" aria-pressed="false">Статьи</button>
+              <button type="button" data-feed-filter="video" aria-pressed="false">Видео</button>
+              <button type="button" data-feed-filter="promo" aria-pressed="false">Акции</button>
+              <button type="button" data-feed-filter="b2b" aria-pressed="false">B2B</button>
+            </div>
+            <div class="feed-nav-note">
+              <strong>Для менеджера</strong>
+              <p>Каждая карточка ведет на страницу, которую можно отправить клиенту или открыть как рабочий материал.</p>
             </div>
           </aside>
-        </div>
 
-        <div class="section-shell proof-strip" aria-label="Ключевые доказательства">
-          <div data-reveal><strong>11</strong><span>филиалов для региональной работы</span></div>
-          <div data-reveal><strong>12+</strong><span>брендов и направлений в портфеле</span></div>
-          <div data-reveal><strong>3</strong><span>аудитории: команда, B2B, потребитель</span></div>
-          <div data-reveal><strong>1</strong><span>официальный источник материалов</span></div>
-        </div>
-      </section>
-
-      <section class="section audience-section" aria-labelledby="audience-title">
-        <div class="section-shell">
-          <div class="section-head split" data-reveal>
-            <div>
-              <p class="eyebrow">кому сайт приносит пользу</p>
-              <h2 id="audience-title">Один материал работает в трех направлениях</h2>
+          <section class="feed-stream" aria-labelledby="feed-title" data-feed-stream>
+            <div class="feed-stream-head" data-reveal>
+              <div>
+                <p class="eyebrow">оперативная повестка</p>
+                <h2 id="feed-title">Лента материалов</h2>
+              </div>
+              <div class="feed-mode">
+                <span>Свежие</span>
+                <span>Бренды</span>
+                <span>B2B</span>
+              </div>
             </div>
-            <p>Каждая новость проектируется как деловой инструмент: внутри компании она синхронизирует знания, для B2B дает повод написать клиенту, для потребителя объясняет пользу продукта.</p>
-          </div>
-          <div class="audience-grid">
-            <article class="audience-card" data-reveal>
-              <span>01 / команда</span>
-              <h3>Быстро понять, что изменилось</h3>
-              <p>Новые SKU, спецификации, документы, складские поводы, брендовые кампании и ответы технических специалистов.</p>
-              <a class="text-link" href="/knowledge.html">Материалы сотруднику</a>
-            </article>
-            <article class="audience-card accent-red" data-reveal>
-              <span>02 / B2B</span>
-              <h3>Отправить клиенту сильную ссылку</h3>
-              <p>Короткий пост, аргумент доверия, переход на брендовый сайт и следующий шаг без лишних объяснений в переписке.</p>
-              <a class="text-link" href="/news/">Инфоповоды партнеру</a>
-            </article>
-            <article class="audience-card" data-reveal>
-              <span>03 / потребитель</span>
-              <h3>Увидеть применение продукта</h3>
-              <p>Статьи, советы, кейсы техники, блогерские интеграции, FAQ и переход к подбору на официальном сайте бренда.</p>
-              <a class="text-link" href="/brands.html">Перейти к брендам</a>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      <section class="section cases-lab" aria-labelledby="cases-title">
-        <div class="section-shell">
-          <div class="section-head split" data-reveal>
-            <div>
-              <p class="eyebrow">кейсы и инфоповоды</p>
-              <h2 id="cases-title">Не новости ради новостей, а готовые сценарии продаж</h2>
+            <article class="feed-card feed-card-featured" data-feed-item data-feed-type="news b2b" data-reveal>
+              <a class="feed-card-media canister-strip" href="/b2b/lopal-canisters-color/" aria-label="Обновление цвета канистр Lopal E21, E26, E27">
+                <img src="/assets/images/b2b/lopal-e21-canister.png" alt="Lopal E21 в новой синей канистре">
+                <img src="/assets/images/b2b/lopal-e26-canister.png" alt="Lopal E26 в новой синей канистре">
+                <img src="/assets/images/b2b/lopal-e27-canister.png" alt="Lopal E27 в новой синей канистре">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>новость</span><time datetime="2026-05-18">18.05.2026</time><strong>Lopal</strong></div>
+                <h3><a href="/b2b/lopal-canisters-color/">Обновление цвета канистр LOPAL E21, E26, E27</a></h3>
+                <p>Синий цвет вместо золотистого, обновленная этикетка и пояснение для партнеров: рецептуры полностью совместимы и идентичны.</p>
+                <div class="feed-card-tags"><span>склад</span><span>упаковка</span><span>B2B</span></div>
+                <div class="feed-card-actions"><a href="/b2b/lopal-canisters-color/">Открыть</a><button type="button" data-copy-link>Скопировать ссылку</button><small data-copy-note></small></div>
+              </div>
+            </article>
+
+            <article class="feed-card" data-feed-item data-feed-type="article news" data-reveal>
+              <a class="feed-card-media" href="/news/api-sq/">
+                <img src="/assets/optimized/news-api-sq.jpg" alt="Масла Lopal API SQ">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>статья</span><time datetime="2026-06-23">23.06.2026</time><strong>Lopal</strong></div>
+                <h3><a href="/news/api-sq/">Масла API SQ уже поступают в продажу</a></h3>
+                <p>Что изменилось в продуктовой линейке, кому это важно и как использовать новость в коммуникации с клиентом.</p>
+                <div class="feed-card-tags"><span>API SQ</span><span>легковые авто</span><span>бренд</span></div>
+                <div class="feed-card-actions"><a href="/news/api-sq/">Читать</a><a href="https://lopal-oil.ru/" target="_blank" rel="noreferrer">На сайт бренда</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card compact" data-feed-item data-feed-type="promo b2b" data-reveal>
+              <a class="feed-card-media contain" href="/b2b/liqui-moly-ball/">
+                <img src="/assets/images/b2b/liqui-moly-ball.png" alt="Футбольный мяч Liqui Moly">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>акция</span><time datetime="2026-06-11">11.06.2026</time><strong>Liqui Moly</strong></div>
+                <h3><a href="/b2b/liqui-moly-ball/">Футбольный мяч Liqui Moly в рекламной продукции</a></h3>
+                <p>Короткий промо-повод для партнеров: артикул, цена и доступность к выписке на складе.</p>
+                <div class="feed-card-tags"><span>промо</span><span>POSM</span><span>B2B</span></div>
+                <div class="feed-card-actions"><a href="/b2b/liqui-moly-ball/">Открыть</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card" data-feed-item data-feed-type="video article" data-reveal>
+              <a class="feed-card-media video-preview" href="/knowledge.html" aria-label="Открыть видео и базу знаний">
+                <img src="/assets/optimized/products.png" alt="Продуктовая линейка Alleya Group">
+                <span></span>
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>видео</span><time datetime="2026-06-24">24.06.2026</time><strong>Техподдержка</strong></div>
+                <h3><a href="/knowledge.html">Как выбрать масло для автопарка в 2026 году</a></h3>
+                <p>Формат короткого ролика: задача клиента, три критерия подбора, брендовый маршрут и ссылка на технический ответ.</p>
+                <div class="feed-card-tags"><span>reels</span><span>совет</span><span>эксперт</span></div>
+                <div class="feed-card-actions"><a href="/knowledge.html">Смотреть</a><a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card" data-feed-item data-feed-type="news b2b" data-reveal>
+              <a class="feed-card-media" href="/b2b/reinwell-gerol-atf-dx3/">
+                <img src="/assets/images/b2b/reinwell-canister.png" alt="Новая канистра ReinWell GEROL ATF DX III">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>новость</span><time datetime="2026-06-19">19.06.2026</time><strong>ReinWell</strong></div>
+                <h3><a href="/b2b/reinwell-gerol-atf-dx3/">Поступление GEROL ATF DX III в новой канистре</a></h3>
+                <p>Премиальный вид упаковки, защита от подделок, удобство заливки и готовый текст для успешных продаж.</p>
+                <div class="feed-card-tags"><span>новинка</span><span>склад</span><span>трансмиссия</span></div>
+                <div class="feed-card-actions"><a href="/b2b/reinwell-gerol-atf-dx3/">Открыть</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card compact" data-feed-item data-feed-type="news" data-reveal>
+              <a class="feed-card-media" href="/news/chestny-znak/">
+                <img src="/assets/optimized/news-chestny-znak.jpg" alt="Честный знак">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>новость</span><time datetime="2026-06-23">23.06.2026</time><strong>рынок</strong></div>
+                <h3><a href="/news/chestny-znak/">Честный знак как аргумент официального канала</a></h3>
+                <p>Маркировка и прозрачность поставки в одном материале для B2B-коммуникации.</p>
+                <div class="feed-card-tags"><span>доверие</span><span>документы</span></div>
+                <div class="feed-card-actions"><a href="/news/chestny-znak/">Читать</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card compact" data-feed-item data-feed-type="promo b2b" data-reveal>
+              <a class="feed-card-media contain" href="/b2b/price-update-russian-products/">
+                <img src="/assets/images/b2b/price-change.png" alt="Изменение цен">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>акция</span><time datetime="2026-06-18">18.06.2026</time><strong>прайс-лист</strong></div>
+                <h3><a href="/b2b/price-update-russian-products/">Изменение цен на продукцию российского производства</a></h3>
+                <p>Обновленные прайс-листы, отмена спеццен и таблица изменений по артикулам.</p>
+                <div class="feed-card-tags"><span>цены</span><span>прайс</span><span>скачать</span></div>
+                <div class="feed-card-actions"><a href="/b2b/price-update-russian-products/">Открыть</a><a href="/assets/docs/reinwell-price-update-2026-06-18.csv" download>CSV</a></div>
+              </div>
+            </article>
+
+            <article class="feed-card" data-feed-item data-feed-type="article news" data-reveal>
+              <a class="feed-card-media" href="/news/zoomlion-lopal/">
+                <img src="/assets/optimized/news-zoomlion.jpg" alt="Zoomlion и Lopal">
+              </a>
+              <div class="feed-card-body">
+                <div class="feed-card-meta"><span>кейс</span><time datetime="2026-06-23">23.06.2026</time><strong>индустрия</strong></div>
+                <h3><a href="/news/zoomlion-lopal/">Zoomlion отметил промышленную роль Lopal</a></h3>
+                <p>Доказательство применения бренда в тяжелой технике и повод говорить с промышленными клиентами.</p>
+                <div class="feed-card-tags"><span>кейс</span><span>техника</span><span>Lopal</span></div>
+                <div class="feed-card-actions"><a href="/news/zoomlion-lopal/">Читать</a></div>
+              </div>
+            </article>
+          </section>
+
+          <aside class="feed-aside" data-reveal aria-label="Быстрые переходы">
+            <div class="aside-card hot">
+              <span>сегодня важно</span>
+              <strong>Lopal, ReinWell и прайсы уже в B2B-ленте</strong>
+              <a href="/portal.html">Войти в B2B</a>
             </div>
-            <p>Здесь важен контекст, доказательство и путь пользователя. Ниже примеры того, как портал превращает событие в деловую коммуникацию.</p>
-          </div>
-          <div class="case-matrix">
-            <a class="matrix-card tall" href="/news/api-sq/" data-reveal>
-              <span>запуск / продукт</span>
-              <h3>API SQ для Lopal</h3>
-              <p>Обновление продукта сразу превращается в понятное сообщение для СТО, розницы и автопарков.</p>
-              <em>Открыть материал</em>
-            </a>
-            <a class="matrix-card" href="/news/chestny-znak/" data-reveal>
-              <span>рынок / доверие</span>
-              <h3>Честный знак</h3>
-              <p>Маркировка объясняется как преимущество официального канала.</p>
-              <em>Читать</em>
-            </a>
-            <a class="matrix-card dark" href="/news/zoomlion-lopal/" data-reveal>
-              <span>промышленность</span>
-              <h3>Zoomlion x Lopal</h3>
-              <p>Факт применения бренда становится техническим аргументом.</p>
-              <em>Читать</em>
-            </a>
-            <a class="matrix-card" href="/contacts.html" data-reveal>
-              <span>модельный кейс</span>
-              <h3>Пакет запуска региона</h3>
-              <p>Баннер, FAQ, брендовая карточка и контакт эксперта для нового партнера.</p>
-              <em>Запросить</em>
-            </a>
-            <a class="matrix-card wide" href="/knowledge.html" data-reveal>
-              <span>экспертиза</span>
-              <h3>Ответ технического специалиста как отдельный материал</h3>
-              <p>Сложный вопрос из продаж или форума превращается в короткую статью, которую можно повторно отправлять клиентам.</p>
-              <em>В базу знаний</em>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section flow-section" aria-labelledby="flow-title">
-        <div class="section-shell flow-grid">
-          <div data-reveal>
-            <p class="eyebrow">логистика доверия</p>
-            <h2 id="flow-title">Компания должна выглядеть как система, а не как набор карточек</h2>
-            <p>Визуальная логика сайта показывает движение информации и продукта: от производителя и бренда к документам, филиалам, партнеру и конечному клиенту.</p>
-            <div class="flow-points">
-              <div><strong>официальный портфель</strong><span>сайты брендов остаются источником подбора и продуктовых деталей</span></div>
-              <div><strong>оперативные материалы</strong><span>новости, лендинги, баннеры, FAQ и документы</span></div>
-              <div><strong>региональная опора</strong><span>11 филиалов и партнерская сеть для реального рынка</span></div>
+            <div class="aside-card">
+              <span>бренды</span>
+              <a href="https://liquimoly.ru/" target="_blank" rel="noreferrer">Liqui Moly</a>
+              <a href="https://lopal-oil.ru/" target="_blank" rel="noreferrer">Lopal</a>
+              <a href="https://bizol-oil.ru/" target="_blank" rel="noreferrer">Bizol</a>
+              <a href="https://lubex-oil.ru/" target="_blank" rel="noreferrer">Lubex</a>
             </div>
-          </div>
-          <div class="flow-map" data-reveal aria-label="Схема движения материала">
-            <span class="flow-core">AG</span>
-            <span class="flow-node fn-one">бренд</span>
-            <span class="flow-node fn-two">новость</span>
-            <span class="flow-node fn-three">документы</span>
-            <span class="flow-node fn-four">филиалы</span>
-            <span class="flow-node fn-five">партнер</span>
-            <span class="flow-node fn-six">клиент</span>
-            <i class="flow-ring ring-one"></i>
-            <i class="flow-ring ring-two"></i>
-          </div>
-        </div>
-      </section>
-
-      <section class="section brand-gateway" aria-labelledby="brand-title">
-        <div class="section-shell brand-gateway-grid">
-          <div class="brand-copy" data-reveal>
-            <p class="eyebrow">брендовый контур</p>
-            <h2 id="brand-title">Бренды работают как навигация к экспертным материалам и официальным сайтам</h2>
-            <p>На корпоративном сайте бренд работает как направление, доказательство и маршрут. Подбор, детальные карточки и покупка остаются на официальных брендовых сайтах.</p>
-            <a class="button button-dark" href="/brands.html">Открыть портфель</a>
-          </div>
-          <div class="brand-orbit" data-reveal>
-            <a href="https://liquimoly.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/LM.png" alt="Liqui Moly"><span>официальный сайт</span></a>
-            <a href="https://lopal-oil.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/LOPAL.png" alt="Lopal"><span>подбор и каталог</span></a>
-            <a href="https://bizol-oil.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/BIZOL.png" alt="Bizol"><span>официальный сайт</span></a>
-            <a href="https://lubex-oil.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/LUBEX.png" alt="Lubex"><span>подбор и каталог</span></a>
-            <a href="https://opet.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/OPET.png" alt="Opet"><span>официальный сайт</span></a>
-            <a href="https://ruseff-auto.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/RF.png" alt="Ruseff"><span>продукты бренда</span></a>
-            <a href="https://petrofer.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/PETROFER.png" alt="Petrofer"><span>индустрия</span></a>
-            <a href="https://reinwell.ru/" target="_blank" rel="noreferrer"><img src="/assets/images/REINWELL.png" alt="Reinwell"><span>автохимия</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-news" aria-labelledby="latest-title">
-        <div class="section-shell">
-          <div class="section-head split" data-reveal>
-            <div>
-              <p class="eyebrow">медиацентр</p>
-              <h2 id="latest-title">Медиацентр с контекстом и следующим шагом</h2>
+            <div class="aside-card">
+              <span>документы</span>
+              <a href="/knowledge.html">База знаний</a>
+              <a href="/assets/docs/reinwell-price-update-2026-06-18.csv" download>Прайс CSV</a>
+              <a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум AG</a>
             </div>
-            <p>У новостей есть детальные страницы: менеджер может отправить ссылку, партнер быстро понять контекст, а потребитель перейти дальше на бренд или в базу знаний.</p>
-          </div>
-          <div class="news-grid">
-            <article class="news-card featured" data-reveal>
-              <a href="/news/api-sq/" class="media-link"><img src="/assets/optimized/news-api-sq.jpg" alt="Масла API SQ"></a>
-              <div class="card-copy"><span>Lopal / продукт / API SQ</span><h3><a href="/news/api-sq/">Масла API SQ уже поступают в продажу</a></h3><p>Обновление спецификаций Lopal, аудитория материала и готовый маршрут к брендовому сайту.</p><a class="text-link" href="/news/api-sq/">Читать материал</a></div>
-            </article>
-            <article class="news-card" data-reveal>
-              <a href="/news/chestny-znak/" class="media-link"><img src="/assets/optimized/news-chestny-znak.jpg" alt="Честный знак"></a>
-              <div class="card-copy"><span>Рынок / документы / B2B</span><h3><a href="/news/chestny-znak/">Честный знак: поэкземплярный учет масел</a></h3><p>Прозрачность поставки как аргумент доверия к официальному партнеру.</p><a class="text-link" href="/news/chestny-znak/">Читать материал</a></div>
-            </article>
-            <article class="news-card" data-reveal>
-              <a href="/news/lopal-top-10/" class="media-link logo-media"><img src="/assets/images/LOPAL.png" alt="Lopal"></a>
-              <div class="card-copy"><span>Компания / доверие / Lopal</span><h3><a href="/news/lopal-top-10/">ALLEYA GROUP вошла в TOP-10 дистрибьюторов Lopal</a></h3><p>Достижение, которое усиливает доверие к брендовому портфелю компании.</p><a class="text-link" href="/news/lopal-top-10/">Читать материал</a></div>
-            </article>
-          </div>
+          </aside>
         </div>
       </section>
 
       <section class="cta-band">
         <div class="section-shell cta-inner">
-          <h2>Нужен материал для клиента, бренда или региона?</h2>
-          <p>Портал дает менеджеру готовую ссылку, а партнеру - понятное доказательство масштаба ALLEYA GROUP.</p>
-          <div><a class="button button-primary" href="/contacts.html">Запросить пакет</a><a class="button button-light" href="/knowledge.html">Открыть базу</a></div>
+          <h2>Материал должен вести к действию</h2>
+          <p>Лента остается публичной витриной, а закрытые акции, отгрузки и прайс-листы уходят в B2B-кабинет.</p>
+          <div><a class="button button-primary" href="/portal.html">Открыть B2B</a><a class="button button-light" href="/contacts.html">Стать партнером</a></div>
         </div>
       </section>
     </main>

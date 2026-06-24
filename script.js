@@ -133,16 +133,81 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
   button.addEventListener("click", async () => {
     const note = button.parentElement?.querySelector("[data-copy-note]");
     if (note) note.textContent = "Ссылка скопирована.";
+    const card = button.closest("[data-feed-item]");
+    const target = card?.querySelector("a[href]")?.href || window.location.href;
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(target);
     } catch {
-      if (note) note.textContent = window.location.href;
+      if (note) note.textContent = target;
     }
   });
 });
 
 document.querySelectorAll("[data-print]").forEach((button) => {
   button.addEventListener("click", () => window.print());
+});
+
+document.querySelectorAll("[data-feed-filters]").forEach((filterWrap) => {
+  const buttons = Array.from(filterWrap.querySelectorAll("[data-feed-filter]"));
+  const items = Array.from(document.querySelectorAll("[data-feed-item]"));
+  if (!buttons.length || !items.length) return;
+
+  const setFilter = (filter) => {
+    buttons.forEach((button) => {
+      const isActive = button.dataset.feedFilter === filter;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+    items.forEach((item) => {
+      const types = (item.dataset.feedType || "").split(/\s+/);
+      item.classList.toggle("is-hidden", filter !== "all" && !types.includes(filter));
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => setFilter(button.dataset.feedFilter || "all"));
+  });
+});
+
+document.querySelectorAll("[data-feed-carousel]").forEach((carousel) => {
+  const slides = Array.from(carousel.querySelectorAll("[data-feed-slide]"));
+  const dotsWrap = carousel.querySelector("[data-feed-carousel-dots]");
+  const prev = carousel.querySelector("[data-feed-carousel-prev]");
+  const next = carousel.querySelector("[data-feed-carousel-next]");
+  let index = slides.findIndex((slide) => slide.classList.contains("is-active"));
+  if (index < 0) index = 0;
+
+  const dots = slides.map((_, dotIndex) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Показать баннер ${dotIndex + 1}`);
+    dot.addEventListener("click", () => setSlide(dotIndex));
+    dotsWrap?.append(dot);
+    return dot;
+  });
+
+  const setSlide = (nextIndex) => {
+    index = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === index);
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === index);
+      dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
+    });
+  };
+
+  prev?.addEventListener("click", () => setSlide(index - 1));
+  next?.addEventListener("click", () => setSlide(index + 1));
+  setSlide(index);
+
+  if (!reducedMotion && slides.length > 1) {
+    let timer = window.setInterval(() => setSlide(index + 1), 6200);
+    carousel.addEventListener("pointerenter", () => window.clearInterval(timer));
+    carousel.addEventListener("pointerleave", () => {
+      timer = window.setInterval(() => setSlide(index + 1), 6200);
+    });
+  }
 });
 
 document.querySelectorAll("[data-news-carousel]").forEach((carousel) => {
