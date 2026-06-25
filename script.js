@@ -249,12 +249,15 @@ document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
   const railLike = reels.querySelector("[data-reels-rail-like]");
   const railLikeCount = reels.querySelector("[data-reels-rail-like-count]");
   const railDislike = reels.querySelector("[data-reels-rail-dislike]");
+  const railSound = reels.querySelector("[data-reels-sound]");
+  const railSoundLabel = reels.querySelector("[data-reels-sound-label]");
   const railCommentCount = reels.querySelector("[data-reels-rail-comment-count]");
   const railShare = reels.querySelector("[data-reels-rail-share]");
   const railNote = reels.querySelector("[data-reels-rail-note]");
   if (!track || !cards.length) return;
 
   let activeIndex = Math.max(0, cards.findIndex((card) => card.classList.contains("is-active")));
+  let soundOn = false;
   let scrollTimer;
   let isInView = false;
   const commentCounts = [18, 12, 9, 8, 7, 6, 5, 4];
@@ -265,6 +268,16 @@ document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
     videos.forEach((video) => video?.pause());
   };
 
+  const syncSound = () => {
+    reels.classList.toggle("is-sound-on", soundOn);
+    railSound?.setAttribute("aria-label", soundOn ? "Выключить звук" : "Включить звук");
+    if (railSoundLabel) railSoundLabel.textContent = soundOn ? "Вкл." : "Звук";
+    videos.forEach((video, videoIndex) => {
+      if (!video) return;
+      video.muted = videoIndex !== activeIndex || !soundOn;
+    });
+  };
+
   const playActive = () => {
     if (document.hidden || !isInView || reels.closest(".is-hidden")) {
       pauseAll();
@@ -273,9 +286,10 @@ document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
     videos.forEach((video, videoIndex) => {
       if (!video) return;
       if (videoIndex === activeIndex) {
-        video.muted = true;
+        video.muted = !soundOn;
         video.play().catch(() => {});
       } else {
+        video.muted = true;
         video.pause();
       }
     });
@@ -295,6 +309,7 @@ document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
   const setActive = (index) => {
     activeIndex = clamp(index, 0, cards.length - 1);
     cards.forEach((card, cardIndex) => card.classList.toggle("is-active", cardIndex === activeIndex));
+    syncSound();
     syncRail();
     playActive();
   };
@@ -403,7 +418,14 @@ document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
   });
 
   railDislike?.addEventListener("click", () => {
-    railDislike.classList.toggle("is-active");
+    const isActive = railDislike.classList.toggle("is-active");
+    railDislike.setAttribute("aria-pressed", String(isActive));
+  });
+
+  railSound?.addEventListener("click", () => {
+    soundOn = !soundOn;
+    syncSound();
+    playActive();
   });
 
   railShare?.addEventListener("click", async () => {
