@@ -12,19 +12,16 @@
     <header class="site-header" data-header>
       <div class="top-strip"><span>Официальные бренды, документы и подтвержденные материалы ALLEYA GROUP</span><a href="tel:+74992771577">+7 (499) 277-15-77</a><a href="/knowledge.html">Документы</a><a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a></div>
       <a class="brand-lockup" href="/" aria-label="ALLEYA GROUP">
-        <img src="/assets/images/logo.png" alt="ALLEYA GROUP">
-        <span>информационный портал</span>
-      </a>
+        <img src="/assets/images/logo.png" alt="ALLEYA GROUP"></a>
       <nav class="site-nav" id="main-nav" aria-label="Главная навигация" data-nav>
         <a class="is-active" aria-current="page" href="/">Главная</a>
         <a href="/about.html">О компании</a>
-        <a href="/news/">Новости</a>
         <a href="/brands.html">Бренды</a>
         <a href="/knowledge.html">База знаний</a>
         <a href="/portal.html">B2B</a><a href="/contacts.html">Контакты</a>
       </nav>
       <div class="header-actions">
-        <a class="ghost-link" href="/portal.html">Вход B2B</a>
+        <a class="ghost-link" href="/#login">Вход</a>
         <a class="button button-primary" href="/contacts.html">Стать партнером</a>
       </div>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
@@ -35,17 +32,23 @@
     <main class="media-home pikabu-home">
       <section class="brand-hero" id="top" data-feed-carousel aria-label="Главные баннеры брендов">
         <div class="brand-hero-track">
-          <a class="brand-hero-slide is-active" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
+          <a class="brand-hero-slide brand-hero-slide--wide is-active" href="https://liquimoly.ru/promo/best/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/liquimoly-best.jpg" alt="Liqui Moly: лучше лей лучшее">
+          </a>
+          <a class="brand-hero-slide" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
             <img src="/assets/images/hero/lopal-6l.jpg" alt="Lopal: объем имеет значение 6 литров">
+          </a>
+          <a class="brand-hero-slide" href="https://lubex-oil.ru/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/lubex-main.jpg" alt="Lubex брендовый баннер">
+          </a>
+          <a class="brand-hero-slide" href="https://bizol-oil.ru/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/bizol-main.jpg" alt="Bizol брендовый баннер">
+          </a>
+          <a class="brand-hero-slide brand-hero-slide--reinwell" href="https://reinwell.ru/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/reinwell-canister.png" alt="ReinWell новая канистра">
           </a>
           <a class="brand-hero-slide" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
             <img src="/assets/images/hero/lopal-slide-2.jpg" alt="Lopal промо-баннер">
-          </a>
-          <a class="brand-hero-slide" href="https://lopal-oil.ru/official-representative/" target="_blank" rel="noreferrer" data-feed-slide>
-            <img src="/assets/images/hero/lopal-slide-3.jpg" alt="Lopal официальный представитель">
-          </a>
-          <a class="brand-hero-slide" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
-            <img src="/assets/images/hero/lopal-slide-4.jpg" alt="Lopal брендовый баннер">
           </a>
         </div>
         <div class="brand-hero-controls">
@@ -69,10 +72,6 @@
               <button type="button" data-feed-filter="video" aria-pressed="false">Видео</button>
               <button type="button" data-feed-filter="promo" aria-pressed="false">Акции</button>
               <button type="button" data-feed-filter="b2b" aria-pressed="false">B2B</button>
-            </div>
-            <div class="feed-nav-note">
-              <strong>B2B</strong>
-              <p>Закрытые акции, прайсы и отгрузки остаются в кабинете для партнеров и менеджеров.</p>
             </div>
           </aside>
 
@@ -210,15 +209,15 @@
           </section>
 
           <aside class="feed-aside" data-reveal aria-label="Быстрые переходы">
-            <div class="aside-card b2b-login-card">
-              <span>кабинет</span>
-              <strong>Вход B2B</strong>
+            <form class="aside-card user-login-card" id="login" data-user-login>
+              <span>профиль</span>
+              <strong>Вход</strong>
               <label><input type="text" placeholder="Логин" autocomplete="username"></label>
               <label><input type="password" placeholder="Пароль" autocomplete="current-password"></label>
-              <a class="aside-main-button" href="/portal.html">Войти</a>
+              <button class="aside-main-button" type="submit">Войти</button>
               <a class="aside-ghost-button" href="/contacts.html">Запросить доступ</a>
-              <small>Акции, прайсы, отгрузки и материалы для менеджеров.</small>
-            </div>
+              <small data-user-login-status>Обычный профиль для сохраненных материалов и персональной ленты.</small>
+            </form>
             <div class="aside-card hot">
               <span>сегодня важно</span>
               <strong>Lopal, ReinWell и прайсы уже в B2B-ленте</strong>
@@ -242,13 +241,6 @@
         </div>
       </section>
 
-      <section class="cta-band">
-        <div class="section-shell cta-inner">
-          <h2>Материал должен вести к действию</h2>
-          <p>Лента остается публичной витриной, а закрытые акции, отгрузки и прайс-листы уходят в B2B-кабинет.</p>
-          <div><a class="button button-primary" href="/portal.html">Открыть B2B</a><a class="button button-light" href="/contacts.html">Стать партнером</a></div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">

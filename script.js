@@ -115,6 +115,15 @@ window.addEventListener("scroll", updateCompanyStack, { passive: true });
 window.addEventListener("resize", updateCompanyStack);
 updateCompanyStack();
 
+const updateBottomGlow = () => {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  body.classList.toggle("is-at-bottom", maxScroll > 0 && window.scrollY >= maxScroll - 16);
+};
+
+window.addEventListener("scroll", updateBottomGlow, { passive: true });
+window.addEventListener("resize", updateBottomGlow);
+updateBottomGlow();
+
 const forms = document.querySelectorAll("[data-contact-form]");
 
 forms.forEach((form) => {
@@ -154,6 +163,112 @@ document.querySelectorAll("[data-post-expand]").forEach((button) => {
     const isExpanded = card.classList.toggle("is-expanded");
     button.textContent = isExpanded ? "Свернуть" : "Показать полностью";
   });
+});
+
+const getStoredJson = (key, fallback) => {
+  try {
+    return JSON.parse(localStorage.getItem(key) || "") || fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+document.querySelectorAll(".post-vote").forEach((vote, voteIndex) => {
+  const score = vote.querySelector("strong");
+  const buttons = Array.from(vote.querySelectorAll("button"));
+  if (!score || buttons.length < 2) return;
+  const storageKey = `agVote:${vote.closest("[data-feed-item]")?.querySelector("h2")?.textContent?.trim() || voteIndex}`;
+  const initial = Number(score.textContent.trim()) || 0;
+  let state = getStoredJson(storageKey, { value: initial, direction: 0 });
+
+  const render = () => {
+    score.textContent = state.value;
+    vote.classList.toggle("has-voted", state.direction !== 0);
+    buttons[0].classList.toggle("is-active", state.direction === 1);
+    buttons[1].classList.toggle("is-active", state.direction === -1);
+    buttons[0].setAttribute("aria-pressed", String(state.direction === 1));
+    buttons[1].setAttribute("aria-pressed", String(state.direction === -1));
+  };
+
+  const setDirection = (direction) => {
+    const nextDirection = state.direction === direction ? 0 : direction;
+    state.value += nextDirection - state.direction;
+    state.direction = nextDirection;
+    localStorage.setItem(storageKey, JSON.stringify(state));
+    render();
+  };
+
+  buttons[0].addEventListener("click", () => setDirection(1));
+  buttons[1].addEventListener("click", () => setDirection(-1));
+  render();
+});
+
+document.querySelectorAll(".post-reactions button").forEach((button, reactionIndex) => {
+  const cardTitle = button.closest("[data-feed-item]")?.querySelector("h2")?.textContent?.trim() || "post";
+  const storageKey = `agReaction:${cardTitle}:${reactionIndex}`;
+  const original = button.textContent.trim();
+  const match = original.match(/^(.*?)(\d+)?$/);
+  const label = (match?.[1] || original).trim();
+  const initialCount = Number(match?.[2] || 0);
+  let active = localStorage.getItem(storageKey) === "1";
+  let count = initialCount + (active ? 1 : 0);
+
+  const render = () => {
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.textContent = initialCount ? `${label} ${count}` : label;
+  };
+
+  button.addEventListener("click", () => {
+    active = !active;
+    count += active ? 1 : -1;
+    localStorage.setItem(storageKey, active ? "1" : "0");
+    render();
+  });
+  render();
+});
+
+document.querySelectorAll("[data-user-login]").forEach((form) => {
+  const loginInput = form.querySelector('input[type="text"]');
+  const passwordInput = form.querySelector('input[type="password"]');
+  const status = form.querySelector("[data-user-login-status]");
+  const submit = form.querySelector('button[type="submit"]');
+  const storageKey = "agPublicUser";
+
+  const render = () => {
+    const user = localStorage.getItem(storageKey);
+    form.classList.toggle("is-authorized", Boolean(user));
+    if (status) {
+      status.textContent = user
+        ? `Вы вошли как ${user}. Сохраненные материалы и реакции активны.`
+        : "Обычный профиль для сохраненных материалов и персональной ленты.";
+    }
+    if (submit) submit.textContent = user ? "Выйти" : "Войти";
+    if (loginInput) loginInput.disabled = Boolean(user);
+    if (passwordInput) passwordInput.disabled = Boolean(user);
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const currentUser = localStorage.getItem(storageKey);
+    if (currentUser) {
+      localStorage.removeItem(storageKey);
+      if (loginInput) loginInput.value = "";
+      if (passwordInput) passwordInput.value = "";
+      render();
+      return;
+    }
+    const login = loginInput?.value.trim();
+    if (!login) {
+      if (status) status.textContent = "Введите логин.";
+      loginInput?.focus();
+      return;
+    }
+    localStorage.setItem(storageKey, login);
+    render();
+  });
+
+  render();
 });
 
 document.querySelectorAll("[data-print]").forEach((button) => {
