@@ -545,18 +545,38 @@ document.querySelectorAll("[data-feed-carousel]").forEach((carousel) => {
   const next = carousel.querySelector("[data-feed-carousel-next]");
   let index = slides.findIndex((slide) => slide.classList.contains("is-active"));
   if (index < 0) index = 0;
+  carousel.classList.toggle("brand-hero--single", slides.length < 2);
 
-  const dots = slides.map((_, dotIndex) => {
+  const getSlideRatio = (slide) => {
+    const storedRatio = Number(slide.dataset.slideRatio);
+    if (storedRatio > 0) return clamp(storedRatio, 1.6, 5.2);
+    const image = slide.querySelector("img");
+    const width = image?.naturalWidth || image?.width || 1;
+    const height = image?.naturalHeight || image?.height || 1;
+    return clamp(width / height, 1.6, 5.2);
+  };
+
+  const syncHeroRatio = () => {
+    carousel.style.setProperty("--brand-hero-ratio", getSlideRatio(slides[index]).toFixed(3));
+  };
+
+  slides.forEach((slide) => {
+    const image = slide.querySelector("img");
+    image?.addEventListener("load", syncHeroRatio, { once: true });
+  });
+
+  const dots = slides.length > 1 ? slides.map((_, dotIndex) => {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.setAttribute("aria-label", `Показать баннер ${dotIndex + 1}`);
     dot.addEventListener("click", () => setSlide(dotIndex));
     dotsWrap?.append(dot);
     return dot;
-  });
+  }) : [];
 
   const setSlide = (nextIndex) => {
     index = (nextIndex + slides.length) % slides.length;
+    syncHeroRatio();
     slides.forEach((slide, slideIndex) => {
       slide.classList.toggle("is-active", slideIndex === index);
     });
