@@ -32,64 +32,26 @@
       </button>
     </header>
 
-    <main class="media-home">
-      <section class="portal-hero feed-hero" id="top">
-        <canvas class="atmosphere" width="1440" height="760" aria-hidden="true" data-atmosphere></canvas>
-        <div class="section-shell feed-hero-shell">
-          <div class="feed-hero-copy" data-reveal>
-            <p class="eyebrow">медиацентр ALLEYA GROUP</p>
-            <h1>Медиа-лента ALLEYA GROUP</h1>
-            <p class="lead">
-              Новости, статьи, промо и видео собираются в одном рабочем потоке: открыл, понял контекст,
-              отправил ссылку клиенту или ушел на сайт бренда за деталями.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#feed">Открыть ленту</a>
-              <a class="button button-light" href="/portal.html">Вход B2B</a>
-              <a class="button button-glass" href="/brands.html">Бренды</a>
-            </div>
-            <div class="signal-chain" aria-label="Форматы материалов">
-              <span>новости</span>
-              <span>статьи</span>
-              <span>видео</span>
-              <span>акции</span>
-              <span>документы</span>
-            </div>
-          </div>
-
-          <div class="feed-hero-carousel" data-feed-carousel data-reveal aria-label="Главные материалы">
-            <div class="feed-hero-track">
-              <a class="feed-hero-slide is-active" href="/b2b/lopal-durarev-p800/" data-feed-slide>
-                <img src="/assets/images/b2b/lopal-durarev-p800.png" alt="Lopal DuraRev P800 CK-4 5W-30">
-                <div>
-                  <span>главный баннер / Lopal</span>
-                  <h2>DuraRev P800 CK-4 5W-30 для дизельных автопарков</h2>
-                  <p>Большой брендовый материал с аргументами для коммерческого транспорта, автопарков и дилеров.</p>
-                </div>
-              </a>
-              <a class="feed-hero-slide" href="/b2b/reinwell-gerol-atf-dx3/" data-feed-slide>
-                <img src="/assets/images/b2b/reinwell-canister.png" alt="Новая канистра ReinWell">
-                <div>
-                  <span>поступление / ReinWell</span>
-                  <h2>GEROL ATF DX III в новой фирменной канистре</h2>
-                  <p>Поступление на склад, визуальные преимущества упаковки и готовая формулировка для продаж.</p>
-                </div>
-              </a>
-              <a class="feed-hero-slide" href="/b2b/lopal-canisters-color/" data-feed-slide>
-                <img src="/assets/images/b2b/lopal-e21-canister.png" alt="Обновление канистр Lopal E21">
-                <div>
-                  <span>обновление / Lopal</span>
-                  <h2>Канистры E21, E26 и E27 получили новый цвет</h2>
-                  <p>Короткое объяснение для партнеров: рецептуры идентичны, на складе возможны оба дизайна.</p>
-                </div>
-              </a>
-            </div>
-            <div class="feed-hero-controls">
-              <button type="button" data-feed-carousel-prev aria-label="Предыдущий материал"></button>
-              <div class="feed-hero-dots" data-feed-carousel-dots></div>
-              <button type="button" data-feed-carousel-next aria-label="Следующий материал"></button>
-            </div>
-          </div>
+    <main class="media-home pikabu-home">
+      <section class="brand-hero" id="top" data-feed-carousel aria-label="Главные баннеры брендов">
+        <div class="brand-hero-track">
+          <a class="brand-hero-slide is-active" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/lopal-6l.jpg" alt="Lopal: объем имеет значение 6 литров">
+          </a>
+          <a class="brand-hero-slide" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/lopal-slide-2.jpg" alt="Lopal промо-баннер">
+          </a>
+          <a class="brand-hero-slide" href="https://lopal-oil.ru/official-representative/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/lopal-slide-3.jpg" alt="Lopal официальный представитель">
+          </a>
+          <a class="brand-hero-slide" href="https://lopal-oil.ru/news/kogda-4-litra-malo-lopal-vypustil-novuyu-kanistru-6-l/" target="_blank" rel="noreferrer" data-feed-slide>
+            <img src="/assets/images/hero/lopal-slide-4.jpg" alt="Lopal брендовый баннер">
+          </a>
+        </div>
+        <div class="brand-hero-controls">
+          <button type="button" data-feed-carousel-prev aria-label="Предыдущий баннер"></button>
+          <div class="brand-hero-dots" data-feed-carousel-dots></div>
+          <button type="button" data-feed-carousel-next aria-label="Следующий баннер"></button>
         </div>
       </section>
 
@@ -97,8 +59,8 @@
         <div class="section-shell feed-layout">
           <aside class="feed-nav-panel" data-reveal aria-label="Разделы ленты">
             <div class="feed-nav-head">
-              <span>лента</span>
-              <strong>Материалы</strong>
+              <span>Alleya feed</span>
+              <strong>Разделы</strong>
             </div>
             <div class="feed-filter-list" data-feed-filters>
               <button class="is-active" type="button" data-feed-filter="all" aria-pressed="true">Все</button>
@@ -109,137 +71,165 @@
               <button type="button" data-feed-filter="b2b" aria-pressed="false">B2B</button>
             </div>
             <div class="feed-nav-note">
-              <strong>Для менеджера</strong>
-              <p>Каждая карточка ведет на страницу, которую можно отправить клиенту или открыть как рабочий материал.</p>
+              <strong>B2B</strong>
+              <p>Закрытые акции, прайсы и отгрузки остаются в кабинете для партнеров и менеджеров.</p>
             </div>
           </aside>
 
           <section class="feed-stream" aria-labelledby="feed-title" data-feed-stream>
-            <div class="feed-stream-head" data-reveal>
-              <div>
-                <p class="eyebrow">оперативная повестка</p>
-                <h2 id="feed-title">Лента материалов</h2>
-              </div>
-              <div class="feed-mode">
-                <span>Свежие</span>
-                <span>Бренды</span>
-                <span>B2B</span>
-              </div>
+            <div class="news-ribbon" data-reveal aria-label="Свежие новости брендов">
+              <a href="https://lopal-oil.ru/news/pozharobezopasnaya-gidravlika-lopal/" target="_blank" rel="noreferrer"><span>Lopal</span>Пожаробезопасная гидравлика LOPAL</a>
+              <a href="https://liquimoly.ru/news/s-1-aprelya-2026-goda-motornye-masla-pereshli-na-poekzemplyarnyy-uchyet-v-chestnom-znake/" target="_blank" rel="noreferrer"><span>Liqui Moly</span>Моторные масла и поэкземплярный учет</a>
+              <a href="https://bizol-oil.ru/news/edo-i-poekzemplyarnyy-uchyet-motornykh-masel-chto-vazhno-znat-uchastnikam-rynka/" target="_blank" rel="noreferrer"><span>Bizol</span>ЭДО и учет масел: что важно знать рынку</a>
+              <a href="https://lubex-oil.ru/news/lubex-zashel-po-krupnomu/" target="_blank" rel="noreferrer"><span>Lubex</span>LUBEX зашел по-крупному</a>
             </div>
 
-            <article class="feed-card feed-card-featured" data-feed-item data-feed-type="news b2b" data-reveal>
-              <a class="feed-card-media canister-strip" href="/b2b/lopal-canisters-color/" aria-label="Обновление цвета канистр Lopal E21, E26, E27">
-                <img src="/assets/images/b2b/lopal-e21-canister.png" alt="Lopal E21 в новой синей канистре">
-                <img src="/assets/images/b2b/lopal-e26-canister.png" alt="Lopal E26 в новой синей канистре">
-                <img src="/assets/images/b2b/lopal-e27-canister.png" alt="Lopal E27 в новой синей канистре">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>новость</span><time datetime="2026-05-18">18.05.2026</time><strong>Lopal</strong></div>
-                <h3><a href="/b2b/lopal-canisters-color/">Обновление цвета канистр LOPAL E21, E26, E27</a></h3>
-                <p>Синий цвет вместо золотистого, обновленная этикетка и пояснение для партнеров: рецептуры полностью совместимы и идентичны.</p>
-                <div class="feed-card-tags"><span>склад</span><span>упаковка</span><span>B2B</span></div>
-                <div class="feed-card-actions"><a href="/b2b/lopal-canisters-color/">Открыть</a><button type="button" data-copy-link>Скопировать ссылку</button><small data-copy-note></small></div>
+            <article class="post-card" data-feed-item data-feed-type="news article" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>87</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head">
+                  <span class="post-avatar">Lp</span>
+                  <strong>Lopal</strong>
+                  <a href="https://lopal-oil.ru/news/" target="_blank" rel="noreferrer">Новости бренда</a>
+                  <button type="button" aria-label="Дополнительные действия"></button>
+                </header>
+                <h2><a href="https://lopal-oil.ru/news/pozharobezopasnaya-gidravlika-lopal/" target="_blank" rel="noreferrer">Пожаробезопасная гидравлика LOPAL</a></h2>
+                <div class="post-meta"><time datetime="2026-06-15">15.06.2026</time><span>официальная новость</span><span>4 мин</span></div>
+                <a class="post-media" href="https://lopal-oil.ru/news/pozharobezopasnaya-gidravlika-lopal/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/lopal-fire-hydraulics.png" alt="Пожаробезопасная гидравлика LOPAL">
+                </a>
+                <p class="post-excerpt">Материал с сайта Lopal для промышленной аудитории: безопасная гидравлика, применение и официальный брендовый контекст. Такой пост можно открыть как полноценную новость бренда, отправить клиенту или использовать как повод для разговора с промышленными партнерами.<br><br>В формате ленты это не сухая ссылка, а готовая карточка для коммуникации: менеджер видит тему, визуал, источник, теги и может сразу отправить материал клиенту. В полной версии остаются детали по назначению продукта, областям применения и переход на официальный брендовый сайт.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>Lopal</span><span>гидравлика</span><span>индустрия</span><span>новости</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">👍 126</button><button type="button">🔥 34</button><button type="button">💼 18</button><button type="button">+ ещё</button></div>
+                <footer class="post-footer"><span class="comment-count">12</span><button type="button" class="save-action">Сохранить</button><button type="button" data-copy-link>Поделиться</button><small data-copy-note></small></footer>
               </div>
             </article>
 
-            <article class="feed-card" data-feed-item data-feed-type="article news" data-reveal>
-              <a class="feed-card-media" href="/news/api-sq/">
-                <img src="/assets/optimized/news-api-sq.jpg" alt="Масла Lopal API SQ">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>статья</span><time datetime="2026-06-23">23.06.2026</time><strong>Lopal</strong></div>
-                <h3><a href="/news/api-sq/">Масла API SQ уже поступают в продажу</a></h3>
-                <p>Что изменилось в продуктовой линейке, кому это важно и как использовать новость в коммуникации с клиентом.</p>
-                <div class="feed-card-tags"><span>API SQ</span><span>легковые авто</span><span>бренд</span></div>
-                <div class="feed-card-actions"><a href="/news/api-sq/">Читать</a><a href="https://lopal-oil.ru/" target="_blank" rel="noreferrer">На сайт бренда</a></div>
+            <article class="post-card" data-feed-item data-feed-type="news article" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>64</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar">Lp</span><strong>Lopal</strong><a href="https://lopal-oil.ru/news/" target="_blank" rel="noreferrer">Грузовая программа</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="https://lopal-oil.ru/news/maslo-dlya-sovremennogo-dizelnogo-avtoparka-lopal-durarev-p-800-ck-4-5-w-30/" target="_blank" rel="noreferrer">Масло для современного дизельного автопарка Lopal DuraRev P 800 CK-4 5W-30</a></h2>
+                <div class="post-meta"><time datetime="2026-06-15">15.06.2026</time><span>статья</span><span>для автопарков</span></div>
+                <a class="post-media" href="https://lopal-oil.ru/news/maslo-dlya-sovremennogo-dizelnogo-avtoparka-lopal-durarev-p-800-ck-4-5-w-30/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/lopal-durarev-news.png" alt="Lopal DuraRev P800 CK-4 5W-30">
+                </a>
+                <p class="post-excerpt">Реальный материал бренда Lopal: моторное масло для современной дизельной техники, DPF и европейской/китайской коммерческой техники. В ленте это выглядит как пост, но внутри остается переход на официальный источник.<br><br>Такую публикацию удобно использовать как короткий технический аргумент для автопарков: есть баннер, понятная тема и быстрый маршрут к материалу бренда. Для B2B можно отдельно дать версию с остатками, прайсом и условиями отгрузки.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>DuraRev</span><span>5W-30</span><span>автопарк</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">🚚 74</button><button type="button">👍 45</button><button type="button">🔥 12</button></div>
+                <footer class="post-footer"><span class="comment-count">8</span><button type="button" class="save-action">Сохранить</button><a href="/b2b/lopal-durarev-p800/">B2B-версия</a></footer>
               </div>
             </article>
 
-            <article class="feed-card compact" data-feed-item data-feed-type="promo b2b" data-reveal>
-              <a class="feed-card-media contain" href="/b2b/liqui-moly-ball/">
-                <img src="/assets/images/b2b/liqui-moly-ball.png" alt="Футбольный мяч Liqui Moly">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>акция</span><time datetime="2026-06-11">11.06.2026</time><strong>Liqui Moly</strong></div>
-                <h3><a href="/b2b/liqui-moly-ball/">Футбольный мяч Liqui Moly в рекламной продукции</a></h3>
-                <p>Короткий промо-повод для партнеров: артикул, цена и доступность к выписке на складе.</p>
-                <div class="feed-card-tags"><span>промо</span><span>POSM</span><span>B2B</span></div>
-                <div class="feed-card-actions"><a href="/b2b/liqui-moly-ball/">Открыть</a></div>
+            <article class="post-card" data-feed-item data-feed-type="news" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>51</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar lm">LM</span><strong>Liqui Moly</strong><a href="https://liquimoly.ru/news/" target="_blank" rel="noreferrer">Новости</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="https://liquimoly.ru/news/s-1-aprelya-2026-goda-motornye-masla-pereshli-na-poekzemplyarnyy-uchyet-v-chestnom-znake/" target="_blank" rel="noreferrer">Моторные масла перешли на поэкземплярный учет в Честном знаке</a></h2>
+                <div class="post-meta"><time datetime="2026-04-01">01.04.2026</time><span>рынок</span><span>маркировка</span></div>
+                <a class="post-media contain" href="https://liquimoly.ru/news/s-1-aprelya-2026-goda-motornye-masla-pereshli-na-poekzemplyarnyy-uchyet-v-chestnom-znake/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/liquimoly-chestny-znak.jpg" alt="Честный знак Liqui Moly">
+                </a>
+                <p class="post-excerpt">Новость с сайта Liqui Moly: понятный повод объяснить клиентам легальность канала и контроль происхождения продукции. Такие материалы хорошо работают в переписке, потому что не требуют длинного объяснения от менеджера.<br><br>В полной карточке можно держать официальный источник, дату, краткий вывод для клиента и ссылку на AG-материал. Это делает новость не архивом, а рабочим доказательством: почему стоит покупать через официальный канал и почему документы важны.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>Liqui Moly</span><span>Честный знак</span><span>B2B</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">✅ 82</button><button type="button">💼 24</button><button type="button">👍 17</button></div>
+                <footer class="post-footer"><span class="comment-count">5</span><button type="button" class="save-action">Сохранить</button><a href="/news/chestny-znak/">AG-материал</a></footer>
               </div>
             </article>
 
-            <article class="feed-card" data-feed-item data-feed-type="video article" data-reveal>
-              <a class="feed-card-media video-preview" href="/knowledge.html" aria-label="Открыть видео и базу знаний">
-                <img src="/assets/optimized/products.png" alt="Продуктовая линейка Alleya Group">
-                <span></span>
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>видео</span><time datetime="2026-06-24">24.06.2026</time><strong>Техподдержка</strong></div>
-                <h3><a href="/knowledge.html">Как выбрать масло для автопарка в 2026 году</a></h3>
-                <p>Формат короткого ролика: задача клиента, три критерия подбора, брендовый маршрут и ссылка на технический ответ.</p>
-                <div class="feed-card-tags"><span>reels</span><span>совет</span><span>эксперт</span></div>
-                <div class="feed-card-actions"><a href="/knowledge.html">Смотреть</a><a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум</a></div>
+            <article class="post-card" data-feed-item data-feed-type="news article" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>43</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar bz">Bz</span><strong>Bizol</strong><a href="https://bizol-oil.ru/news/" target="_blank" rel="noreferrer">Новости</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="https://bizol-oil.ru/news/edo-i-poekzemplyarnyy-uchyet-motornykh-masel-chto-vazhno-znat-uchastnikam-rynka/" target="_blank" rel="noreferrer">ЭДО и поэкземплярный учет моторных масел: что важно знать участникам рынка</a></h2>
+                <div class="post-meta"><time datetime="2026-06-01">2026</time><span>статья</span><span>рынок</span></div>
+                <a class="post-media" href="https://bizol-oil.ru/news/edo-i-poekzemplyarnyy-uchyet-motornykh-masel-chto-vazhno-znat-uchastnikam-rynka/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/bizol-edo.jpg" alt="Bizol: ЭДО и учет масел">
+                </a>
+                <p class="post-excerpt">Материал Bizol про изменения правил рынка, который можно использовать как объяснение для партнеров и розницы. Внутри ленты он выглядит как публикация канала, но ведет на брендовый сайт.<br><br>Для менеджера это быстрый сценарий разговора: что изменилось, почему участникам рынка важно заранее подготовить документы и где посмотреть первоисточник. В B2B-кабинете рядом можно держать прайс-лист, регламент и контакт ответственного отдела.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>Bizol</span><span>ЭДО</span><span>учет</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">📌 58</button><button type="button">👍 22</button><button type="button">💬 9</button></div>
+                <footer class="post-footer"><span class="comment-count">4</span><button type="button" class="save-action">Сохранить</button><button type="button" data-copy-link>Поделиться</button><small data-copy-note></small></footer>
               </div>
             </article>
 
-            <article class="feed-card" data-feed-item data-feed-type="news b2b" data-reveal>
-              <a class="feed-card-media" href="/b2b/reinwell-gerol-atf-dx3/">
-                <img src="/assets/images/b2b/reinwell-canister.png" alt="Новая канистра ReinWell GEROL ATF DX III">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>новость</span><time datetime="2026-06-19">19.06.2026</time><strong>ReinWell</strong></div>
-                <h3><a href="/b2b/reinwell-gerol-atf-dx3/">Поступление GEROL ATF DX III в новой канистре</a></h3>
-                <p>Премиальный вид упаковки, защита от подделок, удобство заливки и готовый текст для успешных продаж.</p>
-                <div class="feed-card-tags"><span>новинка</span><span>склад</span><span>трансмиссия</span></div>
-                <div class="feed-card-actions"><a href="/b2b/reinwell-gerol-atf-dx3/">Открыть</a></div>
+            <article class="post-card" data-feed-item data-feed-type="news article" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>39</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar lx">Lx</span><strong>Lubex</strong><a href="https://lubex-oil.ru/news/" target="_blank" rel="noreferrer">Новости</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="https://lubex-oil.ru/news/lubex-zashel-po-krupnomu/" target="_blank" rel="noreferrer">LUBEX зашел по-крупному</a></h2>
+                <div class="post-meta"><time datetime="2026-06-01">2026</time><span>новость</span><span>бренд</span></div>
+                <a class="post-media contain" href="https://lubex-oil.ru/news/lubex-zashel-po-krupnomu/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/lubex-large.png" alt="LUBEX зашел по-крупному">
+                </a>
+                <p class="post-excerpt">Новость бренда Lubex для ленты: короткий инфоповод, который можно быстро открыть и отправить партнеру. Карточка специально сделана компактной, чтобы не перегружать поток.<br><br>Такие публикации должны работать как регулярные сигналы бренда: пришла новость, появилась активность, можно показать партнеру, что портфель живет и развивается. Если нужен подробный разбор, пользователь проваливается на брендовый сайт.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>Lubex</span><span>новости</span><span>бренд</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">👍 41</button><button type="button">🔥 15</button><button type="button">💼 7</button></div>
+                <footer class="post-footer"><span class="comment-count">3</span><button type="button" class="save-action">Сохранить</button><button type="button" data-copy-link>Поделиться</button><small data-copy-note></small></footer>
               </div>
             </article>
 
-            <article class="feed-card compact" data-feed-item data-feed-type="news" data-reveal>
-              <a class="feed-card-media" href="/news/chestny-znak/">
-                <img src="/assets/optimized/news-chestny-znak.jpg" alt="Честный знак">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>новость</span><time datetime="2026-06-23">23.06.2026</time><strong>рынок</strong></div>
-                <h3><a href="/news/chestny-znak/">Честный знак как аргумент официального канала</a></h3>
-                <p>Маркировка и прозрачность поставки в одном материале для B2B-коммуникации.</p>
-                <div class="feed-card-tags"><span>доверие</span><span>документы</span></div>
-                <div class="feed-card-actions"><a href="/news/chestny-znak/">Читать</a></div>
+            <article class="post-card" data-feed-item data-feed-type="news promo b2b" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>35</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar rw">Rw</span><strong>ReinWell</strong><a href="https://reinwell.ru/news/" target="_blank" rel="noreferrer">Акции и новости</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="https://reinwell.ru/news/rasshirenie-funktsionala-mnogotselevaya-litievaya-smazka-rw-26/" target="_blank" rel="noreferrer">Расширение функционала: многоцелевая литиевая смазка RW-26</a></h2>
+                <div class="post-meta"><time datetime="2026-06-01">2026</time><span>новинка</span><span>ReinWell</span></div>
+                <a class="post-media" href="https://reinwell.ru/news/rasshirenie-funktsionala-mnogotselevaya-litievaya-smazka-rw-26/" target="_blank" rel="noreferrer">
+                  <img src="/assets/images/parsed/reinwell-rw26.jpg" alt="ReinWell RW-26">
+                </a>
+                <p class="post-excerpt">Карточка из новостей ReinWell: продуктовый повод для B2B-коммуникации и перехода к брендовому материалу. Такой формат можно использовать для новинок, поступлений на склад и изменений упаковки.<br><br>Внутри B2B-версии такая карточка может раскрывать артикул, наличие, цену, печатный лист и короткую подсказку для отдела продаж. В публичной ленте она остается аккуратным информационным поводом без перегруза коммерческими деталями.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>ReinWell</span><span>смазка</span><span>B2B</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">🛠 63</button><button type="button">👍 18</button><button type="button">🔥 8</button></div>
+                <footer class="post-footer"><span class="comment-count">6</span><button type="button" class="save-action">Сохранить</button><a href="/b2b/reinwell-gerol-atf-dx3/">B2B-новость</a></footer>
               </div>
             </article>
 
-            <article class="feed-card compact" data-feed-item data-feed-type="promo b2b" data-reveal>
-              <a class="feed-card-media contain" href="/b2b/price-update-russian-products/">
-                <img src="/assets/images/b2b/price-change.png" alt="Изменение цен">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>акция</span><time datetime="2026-06-18">18.06.2026</time><strong>прайс-лист</strong></div>
-                <h3><a href="/b2b/price-update-russian-products/">Изменение цен на продукцию российского производства</a></h3>
-                <p>Обновленные прайс-листы, отмена спеццен и таблица изменений по артикулам.</p>
-                <div class="feed-card-tags"><span>цены</span><span>прайс</span><span>скачать</span></div>
-                <div class="feed-card-actions"><a href="/b2b/price-update-russian-products/">Открыть</a><a href="/assets/docs/reinwell-price-update-2026-06-18.csv" download>CSV</a></div>
-              </div>
-            </article>
-
-            <article class="feed-card" data-feed-item data-feed-type="article news" data-reveal>
-              <a class="feed-card-media" href="/news/zoomlion-lopal/">
-                <img src="/assets/optimized/news-zoomlion.jpg" alt="Zoomlion и Lopal">
-              </a>
-              <div class="feed-card-body">
-                <div class="feed-card-meta"><span>кейс</span><time datetime="2026-06-23">23.06.2026</time><strong>индустрия</strong></div>
-                <h3><a href="/news/zoomlion-lopal/">Zoomlion отметил промышленную роль Lopal</a></h3>
-                <p>Доказательство применения бренда в тяжелой технике и повод говорить с промышленными клиентами.</p>
-                <div class="feed-card-tags"><span>кейс</span><span>техника</span><span>Lopal</span></div>
-                <div class="feed-card-actions"><a href="/news/zoomlion-lopal/">Читать</a></div>
+            <article class="post-card" data-feed-item data-feed-type="promo b2b" data-reveal>
+              <aside class="post-vote" aria-label="Рейтинг материала"><button type="button" aria-label="Поднять рейтинг"></button><strong>28</strong><button type="button" aria-label="Опустить рейтинг"></button></aside>
+              <div class="post-main">
+                <header class="post-head"><span class="post-avatar ag">AG</span><strong>ALLEYA GROUP</strong><a href="/b2b/">B2B</a><button type="button" aria-label="Дополнительные действия"></button></header>
+                <h2><a href="/b2b/liqui-moly-ball/">Футбольный мяч Liqui Moly в рекламной продукции</a></h2>
+                <div class="post-meta"><time datetime="2026-06-11">11.06.2026</time><span>акция</span><span>для партнеров</span></div>
+                <a class="post-media contain small-product" href="/b2b/liqui-moly-ball/">
+                  <img src="/assets/images/b2b/liqui-moly-ball.png" alt="Футбольный мяч Liqui Moly">
+                </a>
+                <p class="post-excerpt">Пример закрытого B2B-повода: артикул, цена, наличие на складе и условия выдачи рекламной продукции. В публичной ленте виден teaser, а детали и файлы остаются за входом.<br><br>После авторизации партнер или менеджер получает уже деловую версию: условия акции, срок, склад, вложения, прайс и готовую формулировку для сообщения клиенту. Так публичная главная не превращается в каталог, но остается входом в рабочие материалы.</p>
+                <button class="post-more" type="button" data-post-expand>Показать полностью</button>
+                <div class="post-tags"><span>Liqui Moly</span><span>промо</span><span>B2B</span></div>
+                <div class="post-reactions" aria-label="Реакции"><button type="button">🎁 91</button><button type="button">👍 26</button><button type="button">⚽ 14</button></div>
+                <footer class="post-footer"><span class="comment-count">9</span><button type="button" class="save-action">Сохранить</button><a href="/portal.html">Войти в кабинет</a></footer>
               </div>
             </article>
           </section>
 
           <aside class="feed-aside" data-reveal aria-label="Быстрые переходы">
+            <div class="aside-card b2b-login-card">
+              <span>кабинет</span>
+              <strong>Вход B2B</strong>
+              <label><input type="text" placeholder="Логин" autocomplete="username"></label>
+              <label><input type="password" placeholder="Пароль" autocomplete="current-password"></label>
+              <a class="aside-main-button" href="/portal.html">Войти</a>
+              <a class="aside-ghost-button" href="/contacts.html">Запросить доступ</a>
+              <small>Акции, прайсы, отгрузки и материалы для менеджеров.</small>
+            </div>
             <div class="aside-card hot">
               <span>сегодня важно</span>
               <strong>Lopal, ReinWell и прайсы уже в B2B-ленте</strong>
-              <a href="/portal.html">Войти в B2B</a>
+              <a href="/portal.html">Открыть кабинет</a>
+            </div>
+            <div class="aside-card aside-menu-card">
+              <a href="/b2b/"><span>▣</span>Акции B2B</a>
+              <a href="/assets/docs/reinwell-price-update-2026-06-18.csv" download><span>₽</span>Прайсы</a>
+              <a href="/portal.html"><span>↗</span>Отгрузки</a>
+              <a href="/knowledge.html"><span>?</span>База знаний</a>
+              <a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer"><span>#</span>Форум AG</a>
             </div>
             <div class="aside-card">
               <span>бренды</span>
@@ -247,12 +237,6 @@
               <a href="https://lopal-oil.ru/" target="_blank" rel="noreferrer">Lopal</a>
               <a href="https://bizol-oil.ru/" target="_blank" rel="noreferrer">Bizol</a>
               <a href="https://lubex-oil.ru/" target="_blank" rel="noreferrer">Lubex</a>
-            </div>
-            <div class="aside-card">
-              <span>документы</span>
-              <a href="/knowledge.html">База знаний</a>
-              <a href="/assets/docs/reinwell-price-update-2026-06-18.csv" download>Прайс CSV</a>
-              <a href="https://forum.alleya-group.ru/" target="_blank" rel="noreferrer">Форум AG</a>
             </div>
           </aside>
         </div>

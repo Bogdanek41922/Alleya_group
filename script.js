@@ -134,12 +134,25 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
     const note = button.parentElement?.querySelector("[data-copy-note]");
     if (note) note.textContent = "Ссылка скопирована.";
     const card = button.closest("[data-feed-item]");
-    const target = card?.querySelector("a[href]")?.href || window.location.href;
+    const target =
+      card?.querySelector("h2 a[href]")?.href ||
+      card?.querySelector(".post-media[href], .feed-card-media[href]")?.href ||
+      card?.querySelector("a[href]")?.href ||
+      window.location.href;
     try {
       await navigator.clipboard.writeText(target);
     } catch {
       if (note) note.textContent = target;
     }
+  });
+});
+
+document.querySelectorAll("[data-post-expand]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const card = button.closest("[data-feed-item]");
+    if (!card) return;
+    const isExpanded = card.classList.toggle("is-expanded");
+    button.textContent = isExpanded ? "Свернуть" : "Показать полностью";
   });
 });
 
