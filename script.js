@@ -115,9 +115,22 @@ window.addEventListener("scroll", updateCompanyStack, { passive: true });
 window.addEventListener("resize", updateCompanyStack);
 updateCompanyStack();
 
+let bottomWaveTimer;
+let bottomWaveArmed = true;
+
 const updateBottomGlow = () => {
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  body.classList.toggle("is-at-bottom", maxScroll > 0 && window.scrollY >= maxScroll - 16);
+  const atBottom = maxScroll > 0 && window.scrollY >= maxScroll - 16;
+  if (atBottom && bottomWaveArmed) {
+    bottomWaveArmed = false;
+    body.classList.remove("show-bottom-wave");
+    window.requestAnimationFrame(() => body.classList.add("show-bottom-wave"));
+    window.clearTimeout(bottomWaveTimer);
+    bottomWaveTimer = window.setTimeout(() => body.classList.remove("show-bottom-wave"), 1150);
+  }
+  if (!atBottom && window.scrollY < maxScroll - 120) {
+    bottomWaveArmed = true;
+  }
 };
 
 window.addEventListener("scroll", updateBottomGlow, { passive: true });
@@ -228,6 +241,204 @@ document.querySelectorAll(".post-reactions button").forEach((button, reactionInd
   render();
 });
 
+document.querySelectorAll("[data-reels]").forEach((reels, reelsIndex) => {
+  const track = reels.querySelector("[data-reels-track]");
+  const cards = Array.from(reels.querySelectorAll("[data-reel-card]"));
+  const prev = reels.querySelector("[data-reels-prev]");
+  const next = reels.querySelector("[data-reels-next]");
+  const railLike = reels.querySelector("[data-reels-rail-like]");
+  const railLikeCount = reels.querySelector("[data-reels-rail-like-count]");
+  const railDislike = reels.querySelector("[data-reels-rail-dislike]");
+  const railCommentCount = reels.querySelector("[data-reels-rail-comment-count]");
+  const railShare = reels.querySelector("[data-reels-rail-share]");
+  const railNote = reels.querySelector("[data-reels-rail-note]");
+  if (!track || !cards.length) return;
+
+  let activeIndex = Math.max(0, cards.findIndex((card) => card.classList.contains("is-active")));
+  let scrollTimer;
+  let isInView = false;
+  const commentCounts = [18, 12, 9, 8, 7, 6, 5, 4];
+
+  const videos = cards.map((card) => card.querySelector("video"));
+
+  const pauseAll = () => {
+    videos.forEach((video) => video?.pause());
+  };
+
+  const playActive = () => {
+    if (document.hidden || !isInView || reels.closest(".is-hidden")) {
+      pauseAll();
+      return;
+    }
+    videos.forEach((video, videoIndex) => {
+      if (!video) return;
+      if (videoIndex === activeIndex) {
+        video.muted = true;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  };
+
+  const syncRail = () => {
+    const activeCard = cards[activeIndex];
+    const activeLike = activeCard?.querySelector("[data-reel-like]");
+    const activeLikeCount = activeLike?.querySelector("strong")?.textContent || "";
+    railLike?.classList.toggle("is-active", Boolean(activeLike?.classList.contains("is-active")));
+    railLike?.setAttribute("aria-pressed", String(Boolean(activeLike?.classList.contains("is-active"))));
+    if (railLikeCount) railLikeCount.textContent = activeLikeCount;
+    if (railCommentCount) railCommentCount.textContent = commentCounts[activeIndex] || 4;
+    if (railNote) railNote.textContent = "";
+  };
+
+  const setActive = (index) => {
+    activeIndex = clamp(index, 0, cards.length - 1);
+    cards.forEach((card, cardIndex) => card.classList.toggle("is-active", cardIndex === activeIndex));
+    syncRail();
+    playActive();
+  };
+
+  const getCardScrollTop = (card) =>
+    card.getBoundingClientRect().top - track.getBoundingClientRect().top + track.scrollTop;
+
+  const nearestIndex = () => {
+    const trackTop = track.scrollTop;
+    let bestIndex = 0;
+    let bestDistance = Infinity;
+    cards.forEach((card, cardIndex) => {
+      const distance = Math.abs(getCardScrollTop(card) - trackTop);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = cardIndex;
+      }
+    });
+    return bestIndex;
+  };
+
+  const scrollToIndex = (index) => {
+    const target = cards[clamp(index, 0, cards.length - 1)];
+    if (!target) return;
+    track.scrollTo({
+      top: getCardScrollTop(target),
+      behavior: reducedMotion ? "auto" : "smooth"
+    });
+    setActive(clamp(index, 0, cards.length - 1));
+  };
+
+  track.addEventListener(
+    "scroll",
+    () => {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => setActive(nearestIndex()), 80);
+    },
+    { passive: true }
+  );
+
+  prev?.addEventListener("click", () => scrollToIndex(activeIndex - 1));
+  next?.addEventListener("click", () => scrollToIndex(activeIndex + 1));
+
+  track.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      scrollToIndex(activeIndex - 1);
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      scrollToIndex(activeIndex + 1);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const tagName = event.target?.tagName;
+    const isTyping = ["INPUT", "TEXTAREA", "SELECT"].includes(tagName);
+    if (isTyping || event.metaKey || event.ctrlKey || event.altKey) return;
+    if (!body.classList.contains("feed-video-mode") || reels.closest(".is-hidden")) return;
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      scrollToIndex(activeIndex - 1);
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      scrollToIndex(activeIndex + 1);
+    }
+  });
+
+  cards.forEach((card, cardIndex) => {
+    const video = videos[cardIndex];
+    video?.addEventListener("click", () => {
+      if (video.paused) {
+        setActive(cardIndex);
+      } else {
+        video.pause();
+      }
+    });
+  });
+
+  reels.querySelectorAll("[data-reel-like]").forEach((button, buttonIndex) => {
+    const countNode = button.querySelector("strong");
+    const initial = Number(countNode?.textContent || 0);
+    const storageKey = `agReelLike:${reelsIndex}:${buttonIndex}`;
+    let active = localStorage.getItem(storageKey) === "1";
+
+    const render = () => {
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      if (countNode) countNode.textContent = initial + (active ? 1 : 0);
+    };
+
+    button.addEventListener("click", () => {
+      active = !active;
+      localStorage.setItem(storageKey, active ? "1" : "0");
+      render();
+      if (button.closest("[data-reel-card]")?.classList.contains("is-active")) syncRail();
+    });
+
+    render();
+  });
+
+  railLike?.addEventListener("click", () => {
+    cards[activeIndex]?.querySelector("[data-reel-like]")?.click();
+    syncRail();
+  });
+
+  railDislike?.addEventListener("click", () => {
+    railDislike.classList.toggle("is-active");
+  });
+
+  railShare?.addEventListener("click", async () => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}#feed`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      if (railNote) railNote.textContent = "Ссылка скопирована";
+    } catch {
+      if (railNote) railNote.textContent = shareUrl;
+    }
+  });
+
+  if ("IntersectionObserver" in window) {
+    const reelObserver = new IntersectionObserver(
+      (entries) => {
+        isInView = entries.some((entry) => entry.isIntersecting);
+        playActive();
+      },
+      { threshold: 0.42 }
+    );
+    reelObserver.observe(reels);
+  } else {
+    isInView = true;
+  }
+
+  document.addEventListener("visibilitychange", playActive);
+  window.addEventListener("ag:feed-filter", () => {
+    window.setTimeout(() => {
+      setActive(nearestIndex());
+    }, 120);
+  });
+
+  setActive(activeIndex);
+});
+
 document.querySelectorAll("[data-user-login]").forEach((form) => {
   const loginInput = form.querySelector('input[type="text"]');
   const passwordInput = form.querySelector('input[type="password"]');
@@ -281,6 +492,7 @@ document.querySelectorAll("[data-feed-filters]").forEach((filterWrap) => {
   if (!buttons.length || !items.length) return;
 
   const setFilter = (filter) => {
+    body.classList.toggle("feed-video-mode", filter === "video");
     buttons.forEach((button) => {
       const isActive = button.dataset.feedFilter === filter;
       button.classList.toggle("is-active", isActive);
@@ -290,6 +502,11 @@ document.querySelectorAll("[data-feed-filters]").forEach((filterWrap) => {
       const types = (item.dataset.feedType || "").split(/\s+/);
       item.classList.toggle("is-hidden", filter !== "all" && !types.includes(filter));
     });
+    window.dispatchEvent(new CustomEvent("ag:feed-filter", { detail: { filter } }));
+    if (filter === "video") {
+      const reelsPost = document.querySelector(".reels-post:not(.is-hidden)");
+      reelsPost?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+    }
   };
 
   buttons.forEach((button) => {
