@@ -522,7 +522,9 @@ document.querySelectorAll("[data-feed-filters]").forEach((filterWrap) => {
     });
     items.forEach((item) => {
       const types = (item.dataset.feedType || "").split(/\s+/);
-      item.classList.toggle("is-hidden", filter !== "all" && !types.includes(filter));
+      const onlyFilter = item.dataset.feedOnly;
+      const isHidden = onlyFilter ? filter !== onlyFilter : filter !== "all" && !types.includes(filter);
+      item.classList.toggle("is-hidden", isHidden);
     });
     window.dispatchEvent(new CustomEvent("ag:feed-filter", { detail: { filter } }));
     if (filter === "video") {
